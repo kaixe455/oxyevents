@@ -9,84 +9,87 @@ import SportsCarrousel from "@components/carrousels/SportsCarrousel.astro";
 <Layout title="Oxygen Gaming Eventos - Alquila equipamiento para tu evento">
   <main class="text-white">
 
-    <div class="flex flex-col items-center h-[20rem] lg:h-[60vh] mt-[3rem] sm:mt-[3rem] md:mt-0 lg:mt-0">
-      <div class="text-center flex justify-center h-full items-center flex-col gap-[5vh]">
+    <div class="w-full flex flex-col items-center justify-center xl:h-[100vh] sm:h-[90vh] md:h-[50vh] h-[45vh]">
+      <div class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem]">
         <Section title="Catálogo" />
       </div>
-      <div class="z-[-10] absolute opacity-20 w-full">
-        <img class=" w-full h-[20rem] lg:h-[80vh]" src="/imgs/header_catalogo.webp" alt="">
+      <div class="z-[-10] absolute inset-0 opacity-20 w-screen mt-[100px]">
+        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/header_catalogo.webp" alt="">
       </div>
     </div>
 
       <div class="flex flex-col justify-center items-center gap-[1rem]">
           <h3 
             id="boton_catalogo"
-            class="font-bold text-[40px] md:text-[50px] mt-[1rem] lg:mt-[13rem] flex justify-center text-center items-center">Tecnología</h3>
-          <div class="lg:mr-[30px]"  id="gaming">
+            class="font-bold text-[40px] md:text-[50px] mt-[6rem] flex justify-center text-center items-center">Tecnología</h3>
+          
+            <div class="lg:mr-[30px]"  id="gaming">
             <GamingCarrousel />
           </div>
 
-          <div class="h-[30vh] w-full flex justify-center text-center items-center"> 
-            <h3 
+          <div class="flex flex-col justify-center items-center">
+            <div id="ponencias" class="w-full mt-[10vh] mb-[10vh] flex flex-col justify-center items-center gap-[10px] bg-white text-black lg:h-[100vh]">
+              <h1 class="text-4xl font-bold text-mainblue text-center mb-4">CHARLAS Y TALLERES</h1>
+              <p class="text-lg text-justify mx-[15px] lg:w-[90%]">
+                  Creemos que es fundamental que la tecnología y la educación vayan de la mano. 
+                  Por ello colaboramos con diferentes empresas del sector tecnológico para ofrecer charlas y talleres de la mayor calidad.
+                  Si te interesa un taller de alguna temática relacionada, ¡no dudes en preguntar!
+              </p>
+              <p class="text-lg text-justify mb-6 mx-[15px] font-semibold">
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:w-[92%]">
+                  <div class="p-4 rounded-lg shadow-md bg-white">
+                      <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">TRABAJAR CON VIDEOJUEGOS</h2>
+                      <ul class="list-disc list-inside text-black space-y-2">
+                          <li>Inserción en el mercado laboral del sector de los deportes electrónicos.</li>
+                          <li>Creación de videojuegos.</li>
+                      </ul>
+                  </div>
+                  
+                  <div class="p-4 rounded-lg shadow-md bg-white">
+                      <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">EL MUNDO DE LOS VIDEOJUEGOS</h2>
+                      <ul class="list-disc list-inside text-black space-y-2">
+                          <li>Beneficios y perjuicios de los videojuegos.</li>
+                          <li>De Atari a Fortnite, historia de los videojuegos.</li>
+                          <li>Entendiendo los deportes electrónicos.</li>
+                      </ul>
+                  </div>
+                  
+                  <div class="p-4 rounded-lg shadow-md bg-white">
+                      <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">DEPORTE, TECNOLOGÍA Y EDUCACIÓN</h2>
+                      <ul class="list-disc list-inside text-black space-y-2">
+                          <li>Exergame, el deporte tecnológico.</li>
+                          <li>Innovación y tecnología (VR, AR, IA).</li>
+                          <li>Educación gamificada.</li>
+                          <li>Ciberseguridad.</li>
+                          <li>Igualdad y videojuegos.</li>
+                      </ul>
+                  </div>
+                  
+                  <div class="p-4 rounded-lg shadow-md bg-white">
+                      <h1 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">TALLERES</h1>
+                      <ul class="list-disc list-inside text-black space-y-2">
+                          <li>Taller de Cosplay.</li>
+                          <li>Taller de desarrollo de aplicaciones.</li>
+                          <li>Taller de desarrollo de videojuegos.</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      
+          </div>
+    
+
+          <h3 
             id="boton_catalogo"
             class="font-bold text-[40px] md:text-[50px]">Deporte</h3>
-          </div>
           
           <div id="sports">
             <SportsCarrousel></SportsCarrousel>
           </div>
       </div>
       
-      <div id="ponencias" class="mt-[10vh] mx-[30px] mb-[10vh] flex flex-col justify-center items-center gap-[10px]">
-        <h1 class="text-4xl font-bold text-mainblue text-center mb-4">CHARLAS Y TALLERES</h1>
-        <p class="text-lg text-justify mx-[15px] lg:w-[90%] ">
-            Creemos que es fundamental que la tecnología y la educación vayan de la mano. 
-            Por ello colaboramos con diferentes empresas del sector tecnológico para ofrecer charlas y talleres de la mayor calidad.
-            Si te interesa un taller de alguna temática relacionada, ¡no dudes en preguntar!
-        </p>
-        <p class="text-lg text-justify mb-6 mx-[15px] font-semibold ">
-            
-        </p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:w-[92%]">
-            <div class="p-4 rounded-lg shadow-md">
-                <h2 class="text-[18px] font-bold  text-mainblue lg:text-[15px]">TRABAJAR CON VIDEOJUEGOS</h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li class="text-white">Inserción en el mercado laboral del sector de los deportes electrónicos.</li>
-                    <li class="text-white">Creación de videojuegos.</li>
-                </ul>
-            </div>
-            
-            <div class="p-4 rounded-lg shadow-md">
-                <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">EL MUNDO DE LOS VIDEOJUEGOS</h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li class="text-white">Beneficios y perjuicios de los videojuegos.</li>
-                    <li class="text-white">De Atari a Fortnite, historia de los videojuegos.</li>
-                    <li class="text-white">Entendiendo los deportes electrónicos.</li>
-                </ul>
-            </div>
-            
-            <div class="p-4 rounded-lg shadow-md">
-                <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">DEPORTE, TECNOLOGÍA Y EDUCACIÓN</h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li class="text-white">Exergame, el deporte tecnológico.</li>
-                    <li class="text-white">Innovación y tecnología (VR, AR, IA).</li>
-                    <li class="text-white">Educación gamificada.</li>
-                    <li class="text-white">Ciberseguridad.</li>
-                    <li class="text-white">Igualdad y videojuegos.</li>
-                </ul>
-            </div>
-            
-            <div class="p-4 rounded-lg shadow-md">
-                <h1 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">TALLERES</h1>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li class="text-white">Taller de Cosplay.</li>
-                    <li class="text-white">Taller de desarrollo de aplicaciones.</li>
-                    <li class="text-white">Taller de desarrollo de videojuegos.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
+      
     </main>
 </Layout>

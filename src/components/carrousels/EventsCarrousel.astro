@@ -9,7 +9,7 @@ const imagesAlbal = ["event1.webp", "event2.webp"];
 
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7 lg:mt-[-10rem]">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
   {events.map((event) => (
     <div class="flex justify-center items-center w-full">
       <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
