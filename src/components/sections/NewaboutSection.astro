@@ -11,7 +11,7 @@ const images = [
     <div id="descripcion" class="w-full h-52 bg-white text-black text-lg font-bold text-center flex items-center justify-center">
       <span class="text-[20px] p-[10px] md:text-[30px]">CREAMOS EXPERIENCIAS QUE UNEN TECNOLOGÍA, VIDEOJUEGOS Y DEPORTE</span>
     </div>
-    <div class="bg-[#1AA9FF] pt-[30px] pb-[30px] w-[100%] h-[60vh] grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <div class="bg-[#1AA9FF] pt-[30px] pb-[30px] w-[100%] h-[60vh] grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 p-4">
       {images.map((image, index) => (
         <a href={image.url} class="relative overflow-hidden rounded-lg shadow-lg group" id={`image-${index}`}>
           <img src={image.src} alt={`Imagen ${index + 1}`} class="w-full h-[150%] md:h-[100%] object-cover transition-transform duration-300 group-hover:scale-110" />

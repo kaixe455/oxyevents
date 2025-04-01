@@ -5,7 +5,7 @@ const { name, img, date, description, images } = Astro.props;
 
 <a href=`/eventos/evento/${name}` class="flex items-center justify-center w-full"> 
   <img
-  class="rounded-t-lg aspect-square hover:animate-[pulse_1s_ease-in-out_1] w-[90%] transition-all duration-500 h-[55vh] lg:h-[60vh] sm:h-[110vh] md:h-[25rem]"
+  class="rounded-t-lg aspect-square hover:animate-[pulse_1s_ease-in-out_1] w-[90%] transition-all duration-500 h-[55vh] lg:h-[60vh] min-[568px]:h-[110vh] min-[568px]:w-[80vh]  sm:h-[110vh] md:h-[25rem]"
   src={`/events/${img}`}
   alt={name}
   />
