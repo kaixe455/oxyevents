@@ -8,7 +8,7 @@ const imagesAlbal = ["event1.webp", "event2.webp"];
 ---
 <Layout title={item ? item.name : "No encontrado"}>
   <main class="text-white">
-        <div class="gap-[50px]  lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-blue-500 flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] shadow-lg p-8">
+        <div class="gap-[50px]  lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] shadow-lg p-8">
             <EventCardEnlace name={item.name} img={item.img} images={imagesAlbal} date={item.date}/>
             <div class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2">
               <h3 class="font-bold text-[25px]"><i class="fa-solid fa-location-dot"></i> {item.name}</h3>

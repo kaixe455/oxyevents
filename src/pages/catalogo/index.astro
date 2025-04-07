@@ -4,6 +4,7 @@ import Container from "@components/Container.astro";
 import Section from "@components/Section.astro";
 import GamingCarrousel from "@components/carrousels/GamingCarrousel.astro";
 import SportsCarrousel from "@components/carrousels/SportsCarrousel.astro";
+import logo from "@svgs/logo/o2glogo.svg"
 ---
 
 <Layout title="Oxygen Gaming Eventos - Alquila equipamiento para tu evento">
@@ -13,69 +14,110 @@ import SportsCarrousel from "@components/carrousels/SportsCarrousel.astro";
       <div class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem]">
         <Section title="Catálogo" />
       </div>
-      <div class="z-[-10] absolute inset-0 opacity-20 w-screen mt-[100px]">
-        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/header_catalogo.webp" alt="">
+      <div class="hidden sm:flex lg:flex z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
+        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/Header_Posters.webp" alt="">
+      </div>
+
+      <div class="flex sm:hidden lg:hidden z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
+        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/View_Poster_3.webp" alt="">
       </div>
     </div>
 
-      <div class="flex flex-col justify-center items-center gap-[1rem]">
+      <div class="flex flex-col w-full gap-[1rem]">
           <h3 
             id="boton_catalogo"
             class="font-bold text-[40px] md:text-[50px] mt-[6rem] flex justify-center text-center items-center">Tecnología</h3>
           
-            <div class=""  id="gaming">
+          <div class="flex justify-center items-center"  id="gaming">
             <GamingCarrousel />
           </div>
 
-          <div class="flex flex-col justify-center items-center">
-            <div id="ponencias" class="w-full mt-[10vh] mb-[10vh] flex flex-col justify-center items-center gap-[10px] bg-white text-black lg:h-[100vh]">
+          <div class="flex flex-col w-full justify-center items-center bg-[white]">
+            <div id="ponencias" class="w-full mt-[10vh] mb-[10vh] flex flex-col justify-center items-center gap-[10px] bg-white text-black xl:h-[100vh] ">
               <h1 class="text-4xl font-bold text-mainblue text-center mb-4">CHARLAS Y TALLERES</h1>
               <p class="text-lg text-justify mx-[15px] lg:w-[90%]">
                   Creemos que es fundamental que la tecnología y la educación vayan de la mano. 
                   Por ello colaboramos con diferentes empresas del sector tecnológico para ofrecer charlas y talleres de la mayor calidad.
                   Si te interesa un taller de alguna temática relacionada, ¡no dudes en preguntar!
               </p>
-              <p class="text-lg text-justify mb-6 mx-[15px] font-semibold">
-              </p>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:w-[92%]">
-                  <div class="p-4 rounded-lg shadow-md bg-white">
-                      <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">TRABAJAR CON VIDEOJUEGOS</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
+      
+              <div class="grid grid-cols:1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 min-h-screen gap-[45px]">
+                <div class="group h-[25rem] w-80 [perspective:1000px]">
+                  <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div class=" h-full flex">
+                      <img src="/svgs/logo/o2glogo.svg" class=" h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
+                    </div>
+                    <div class="absolute inset-0 w-full h-full rounded-xl bg-[white] [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div class="flex flex-col p-[3rem]">
+                        <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">TRABAJAR CON VIDEOJUEGOS</h2>
+                        <ul class="list-disc list-inside text-black space-y-2">
                           <li>Inserción en el mercado laboral del sector de los deportes electrónicos.</li>
                           <li>Creación de videojuegos.</li>
-                      </ul>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div class="p-4 rounded-lg shadow-md bg-white">
-                      <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">EL MUNDO DE LOS VIDEOJUEGOS</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
+                </div>
+
+                <div class="group h-[25rem] w-80 [perspective:1000px]">
+                  <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div class=" h-full flex">
+                      <img src="/svgs/logo/o2glogo.svg" class=" h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
+                    </div>
+                    <div class="absolute inset-0 w-full h-full rounded-xl bg-[white] [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div class="flex flex-col p-[3rem]">
+                        <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">EL MUNDO DE LOS VIDEOJUEGOS</h2>
+                        <ul class="list-disc list-inside text-black space-y-2">
                           <li>Beneficios y perjuicios de los videojuegos.</li>
                           <li>De Atari a Fortnite, historia de los videojuegos.</li>
                           <li>Entendiendo los deportes electrónicos.</li>
-                      </ul>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div class="p-4 rounded-lg shadow-md bg-white">
-                      <h2 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">DEPORTE, TECNOLOGÍA Y EDUCACIÓN</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
-                          <li>Exergame, el deporte tecnológico.</li>
-                          <li>Innovación y tecnología (VR, AR, IA).</li>
+                </div>
+
+                <div class="group h-[25rem] w-80 [perspective:1000px]">
+                  <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div class=" h-full flex">
+                      <img src="/svgs/logo/o2glogo.svg" class=" h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
+                    </div>
+                    <div class="absolute inset-0 w-full h-full rounded-xl bg-[white] [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div class="flex flex-col p-[3rem]">
+                        <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">DEPORTE, TECNOLOGÍA Y EDUCACIÓN</h2>
+                        <ul class="list-disc list-inside text-black space-y-2">
+                          <li>Exergame.</li>
+                          <li>Creación de videojuegos.</li>
                           <li>Educación gamificada.</li>
                           <li>Ciberseguridad.</li>
                           <li>Igualdad y videojuegos.</li>
-                      </ul>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div class="p-4 rounded-lg shadow-md bg-white">
-                      <h1 class="text-[18px] font-bold mb-2 text-mainblue lg:text-[15px]">TALLERES</h1>
-                      <ul class="list-disc list-inside text-black space-y-2">
+                </div>
+
+                <div class="group h-[25rem] w-80 [perspective:1000px]">
+                  <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <div class=" h-full flex">
+                      <img src="/svgs/logo/o2glogo.svg" class=" h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
+                    </div>
+                    <div class="absolute inset-0 w-full h-full rounded-xl bg-[white] [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div class="flex flex-col p-[3rem]">
+                        <h2 class="text-[18px] font-bold text-mainblue lg:text-[15px]">TALLERES</h2>
+                        <ul class="list-disc list-inside text-black space-y-2">
                           <li>Taller de Cosplay.</li>
                           <li>Taller de desarrollo de aplicaciones.</li>
                           <li>Taller de desarrollo de videojuegos.</li>
-                      </ul>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
+                </div>
+
               </div>
+              
+              
           </div>
       
           </div>
@@ -83,9 +125,9 @@ import SportsCarrousel from "@components/carrousels/SportsCarrousel.astro";
 
           <h3 
             id="boton_catalogo"
-            class="font-bold text-[40px] md:text-[50px]">Deporte</h3>
+            class="font-bold text-[40px] md:text-[50px] text-center">Deporte</h3>
           
-          <div id="sports" class="mb-[50px]">
+          <div id="sports" class="mb-[50px] flex items-center justify-center">
             <SportsCarrousel></SportsCarrousel>
           </div>
       </div>
