@@ -7,20 +7,52 @@ const item = events.find(i => i.name === name);
 const imagesAlbal = ["event1.webp", "event2.webp"];
 ---
 <Layout title={item ? item.name : "No encontrado"}>
-  <main class="text-white">
-        <div class="gap-[50px]  lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] shadow-lg p-8">
-            <EventCardEnlace name={item.name} img={item.img} images={imagesAlbal} date={item.date}/>
-            <div class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2">
-              <h3 class="font-bold text-[25px]"><i class="fa-solid fa-location-dot"></i> {item.name}</h3>
-              <span class="font-bold text-[20px] italic"><i class="fa-solid fa-calendar-days"></i> {item.date}</span>
-              <span class="lg:w-[80%]">{item.description}</span>
-              
-              <a href="/eventos" class=" w-[8.5rem] flex flex-col items-center justify-center mt-[30px]">
-                <button class="relative z-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
-                  Volver
-                </button>
-              </a>
-            </div>
-          </div>
+  <main class="text-white relative">
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="gap-[50px] lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] shadow-lg p-8">
+      
+      <!-- Zona clickeable para abrir modal -->
+      <div id="tarjeta_activar" class="cursor-pointer">
+        <EventCardEnlace name={item.name} img={item.img} images={imagesAlbal} date={item.date}/>
+      </div>
+      
+      <!-- Info y botón volver -->
+      <div class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2">
+        <h3 class="font-bold text-[25px]"><i class="fa-solid fa-location-dot"></i> {item.name}</h3>
+        <span class="font-bold text-[20px] italic"><i class="fa-solid fa-calendar-days"></i> {item.date}</span>
+        <span class="lg:w-[80%]">{item.description}</span>
+        <a href="/eventos" class="w-[8.5rem] flex flex-col items-center justify-center mt-[30px]">
+          <button class="relative z-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+            Volver
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="imagen_zoom" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex justify-center items-center">
+      <div class="relative">
+        <button id="cerrar_modal" class="absolute top-[-20px] right-[-20px] bg-white text-blue-500 font-bold rounded-full w-[40px] h-[40px] flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+          ✕
+        </button>
+        <img class="w-[40vh] min-[568px]:w-[65vh] border-[4px] rounded-xl shadow-2xl" src={`/events/${item.img}`} alt="Imagen centrada" />
+      </div>
+    </div>
   </main>
+
+  <!-- JS para activar/desactivar el modal -->
+  <script is:client>
+    const tarjeta = document.getElementById('tarjeta_activar');
+    const modal = document.getElementById('imagen_zoom');
+    const cerrar = document.getElementById('cerrar_modal');
+
+    tarjeta.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    cerrar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      modal.classList.add('hidden');
+    });
+  </script>
 </Layout>
