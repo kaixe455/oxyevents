@@ -13,8 +13,13 @@ const images = [
     </div>
     <div class="bg-[#1AA9FF] pt-[30px] pb-[30px] w-[100%] h-[60vh] grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 p-4">
       {images.map((image, index) => (
-        <a href={image.url} class="relative overflow-hidden rounded-lg shadow-lg group" id={`image-${index}`}>
-          <img src={image.src} alt={`Imagen ${index + 1}`} class="w-full h-[150%] md:h-[100%] object-cover transition-transform duration-300 group-hover:scale-110" />
+        <a href={image.url} class="relative overflow-hidden rounded-lg shadow-lg group" id={`image-${index}`} >
+          <img 
+            src={image.src} 
+            alt={`Imagen ${index + 1}`} 
+            class="w-full h-[150%] md:h-[100%] object-cover transition-transform duration-300 group-hover:scale-110" 
+            style="object-fit: cover;" 
+          />
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl font-bold opacity-100">
             {image.text}
           </div>
