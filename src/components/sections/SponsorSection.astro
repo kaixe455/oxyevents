@@ -3,19 +3,24 @@ import SponsorsCarrousel from "@components/carrousels/SponsorsCarrousel.astro";
 import ClientestaticCarrousel from "@components/carrousels/ClientestaticCarrousel.astro";
 import Section from "@components/Section.astro";
 import ClientsSection from "./ClientsSection.astro";
+import ReseasCarrusel from "@components/carrousels/ReseñasCarrusel.astro";
 
 
 ---
 
-<section class="bg-white  p-10 " id="clients">
+<section class="bg-white" id="clients">
   <div class="grid grid-cols-1 items-center justify-center mt-5">
     <div class="col-span-1">
       <ClientestaticCarrousel />
     </div>
   </div>
-  <h1 class="font-syne-bold text-3xl text-mainblue text-center mt-3">
+  <div class="bg-[#1AA9FF] w-full mt-[20px] mb-[60px]">
+    <h2 class="font-syne-bold text-3xl text-center pt-[30px] ">Reseñas</h2>
+    <ReseasCarrusel />
+  </div>
+  <h2 class="font-syne-bold text-3xl text-mainblue text-center mt-3">
     COLABORADORES
-  </h1>  <div class="grid grid-cols-1 items-center justify-center mt-5">
+  </h2>  <div class="grid grid-cols-1 items-center justify-center mt-5">
     <div class="col-span-1">
       <SponsorsCarrousel />
     </div>

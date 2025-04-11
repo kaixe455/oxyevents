@@ -1,0 +1,30 @@
+---
+interface Props {
+ rating: number;
+}
+
+const { rating } = Astro.props;
+const maxStars = 5;
+---
+
+<div class="rating-stars">
+ {[...Array(maxStars)].map((_, index) => (
+ <span class={index < rating ? 'star filled' : 'star'}>★</span>
+ ))}
+</div>
+
+<style>
+ .rating-stars {
+ display: inline-block;
+ font-size: 1em;
+ color: #ccc;
+ }
+
+ .star {
+ margin-right: 2px;
+ }
+
+ .star.filled {
+ color: gold;
+ }
+</style>

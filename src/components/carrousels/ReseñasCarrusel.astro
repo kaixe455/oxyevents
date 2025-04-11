@@ -1,0 +1,175 @@
+---
+import RatingStars from "@components/sections/RatingStars.astro";
+
+const resenas = [
+  {
+    texto:
+      "Increíble experiencia de compra. El producto llegó a tiempo y en perfectas condiciones.",
+    autor: "Laura Vargas",
+    calificacion: 5,
+  },
+  {
+    texto:
+      "La calidad de los materiales es excelente. Estoy muy contento con mi compra.",
+    autor: "Pedro Infante",
+    calificacion: 4,
+  },
+  {
+    texto:
+      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
+    autor: "Sofía Mendoza",
+    calificacion: 5,
+  },
+  {
+    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
+    autor: "Carlos López",
+    calificacion: 3,
+  },
+  {
+    texto:
+      "Increíble experiencia de compra. El producto llegó a tiempo y en perfectas condiciones.",
+    autor: "Laura Vargas",
+    calificacion: 5,
+  },
+  {
+    texto:
+      "La calidad de los materiales es excelente. Estoy muy contento con mi compra.",
+    autor: "Pedro Infante",
+    calificacion: 4,
+  },
+  {
+    texto:
+      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
+    autor: "Sofía Mendoza",
+    calificacion: 5,
+  },
+  {
+    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
+    autor: "Carlos López",
+    calificacion: 3,
+  },
+  {
+    texto:
+      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
+    autor: "Sofía Mendoza",
+    calificacion: 5,
+  },
+  {
+    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
+    autor: "Carlos López",
+    calificacion: 3,
+  },
+];
+
+const slidesToShow = 3; // Número de reseñas a mostrar en pantallas grandes
+---
+
+<div class="resenas-carrusel-container  flex flex-col items-center justify-center" id="resenasCarrusel">
+  <div class="resenas-carrusel-track ">
+    {
+      [...resenas, ...resenas.slice(0, slidesToShow)].map((resena) => (
+        <div class="resena-item border-[5px]">
+          <div class="resena-contenido ">
+            <RatingStars rating={resena.calificacion} />
+            <p class="text-black">"{resena.texto}"</p>
+            <p class="autor">- {resena.autor}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .resenas-carrusel-container {
+    overflow-x: hidden; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar el track initially */
+  }
+
+  .resenas-carrusel-track {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    transition: 0.5s ease-in-out; /* Transición para el desplazamiento */
+  }
+
+  .resena-item {
+    flex: 0 0 calc(33.333% - 13.333px); /* Ancho para mostrar 3 items con gap */
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Media query para pantallas pequeñas */
+  @media (max-width: 767px) {
+    .resena-item {
+      width: 50px; /* Ancho específico para teléfonos */
+    }
+  }
+
+  .resena-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .resena-contenido {
+    text-align: center;
+  }
+
+  .resena-contenido p:first-child {
+    margin-top: 0;
+    font-style: italic;
+    color: #1aa9ff;
+  }
+
+  .resena-contenido .autor {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+  }
+  
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carruselContainer = document.getElementById('resenasCarrusel');
+    const carruselTrack = carruselContainer?.querySelector('.resenas-carrusel-track') as HTMLDivElement | null;
+    const resenaItems = carruselTrack?.querySelectorAll('.resena-item') as NodeListOf<HTMLElement> | null;
+    const intervalTime = 3000;
+    let currentIndex = 0;
+    let slidesToShow = 3;
+
+    if (carruselContainer && carruselTrack && resenaItems && resenaItems.length > slidesToShow) {
+      const numResenas = resenaItems.length;
+      const itemWidth = resenaItems?.[0]?.offsetWidth || 0;
+      const gapWidth = parseInt(getComputedStyle(carruselTrack).gap, 10) || 0;
+      const totalItemWidth = itemWidth + gapWidth;
+      const centerOffset = (carruselContainer.offsetWidth - totalItemWidth * slidesToShow) / 15;
+      let scrollPosition = 0;
+
+      function scrollToMiddle() {
+        if (carruselTrack) {
+          scrollPosition = -currentIndex * totalItemWidth + centerOffset;
+          carruselTrack.style.transform = `translateX(${scrollPosition}px)`;
+        }
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % numResenas;
+        scrollToMiddle();
+      }
+
+      scrollToMiddle(); // Centrar la primera tanda al cargar
+
+      setInterval(nextSlide, intervalTime);
+    } else if (carruselContainer) {
+      // Si no hay suficientes reseñas, centrar el contenido
+      carruselContainer.style.justifyContent = 'center';
+    }
+  });
+</script>
