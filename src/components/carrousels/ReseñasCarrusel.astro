@@ -61,7 +61,7 @@ const resenas = [
   },
 ];
 
-const slidesToShow = 3; // Número de reseñas a mostrar en pantallas grandes
+const slidesToShow = 1; // Número de reseñas a mostrar en pantallas grandes
 ---
 
 <div class="resenas-carrusel-container  flex flex-col items-center justify-center" id="resenasCarrusel">
@@ -69,7 +69,7 @@ const slidesToShow = 3; // Número de reseñas a mostrar en pantallas grandes
     {
       [...resenas, ...resenas.slice(0, slidesToShow)].map((resena) => (
         <div class="resena-item border-[5px]">
-          <div class="resena-contenido ">
+          <div class="resena-contenido">
             <RatingStars rating={resena.calificacion} />
             <p class="text-black">"{resena.texto}"</p>
             <p class="autor">- {resena.autor}</p>
@@ -108,7 +108,19 @@ const slidesToShow = 3; // Número de reseñas a mostrar en pantallas grandes
   /* Media query para pantallas pequeñas */
   @media (max-width: 767px) {
     .resena-item {
-      width: 50px; /* Ancho específico para teléfonos */
+      width: 50px;
+    }
+    .resenas-carrusel-track{
+      margin-left: 50px;
+    }
+  }
+  /* Media query para pantallas pequeñas en horizontal */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .resena-item {
+      width: 50px;
+    }
+    .resenas-carrusel-track {
+      margin-left: 0px;
     }
   }
 
@@ -164,7 +176,7 @@ const slidesToShow = 3; // Número de reseñas a mostrar en pantallas grandes
         scrollToMiddle();
       }
 
-      scrollToMiddle(); // Centrar la primera tanda al cargar
+      scrollToMiddle();
 
       setInterval(nextSlide, intervalTime);
     } else if (carruselContainer) {
