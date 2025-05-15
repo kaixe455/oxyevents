@@ -1,17 +1,25 @@
 ---
-const { name, url } = Astro.props;
+const { name, url, style } = Astro.props;
 ---
 
-<li class="relative group">
-	<a
-	  href={url}
-	  class="nav-button block text-[20px] sm:text-[10px] md:text-[15px] font-bold font-roboto py-2 pl-3 pr-4 text-black rounded md:bg-transparent md:p-0 transition-all ease-in duration-200"
-	  aria-current="page"
-	>
-	  {name}
-	</a>
-	<span
-	  class=" absolute left-0 bottom-0 w-0 h-1 bg-[#1AA9FF] transition-all duration-300 group-hover:w-full"
-	></span>
+<li class={`relative ${style}`}>
+    <a
+        href={url}
+        class={`${style} nav-button block text-[20px] sm:text-[10px] md:text-[15px] font-bold font-roboto py-2 pl-3 pr-4 text-black rounded md:bg-transparent md:p-0 transition-all ease-in duration-200`}
+        aria-current="page"
+    >
+        {name}
+    </a>
+    <span
+        class={`${style} absolute left-0 bottom-0 w-0 h-1 bg-[#1AA9FF] transition-all duration-300 group-hover:w-full`}
+    ></span>
+    
+    <!-- Menú desplegable -->
+    <ul class="absolute left-0 hidden pointer-events-auto group-hover/menu:block bg-white shadow-lg rounded-md w-48">
+        <li><a href="/catalogo/#gaming" class="group-hover/menu:block px-4 py-2 hover:bg-gray-200">Tecnología</a></li>
+        <li><a href="/catalogo/#ponencias" class="group-hover/menu:block px-4 py-2 hover:bg-gray-200">Ponencias</a></li>
+		<li><a href="/catalogo/#sports" class="group-hover/menu:block px-4 py-2 hover:bg-gray-200">Deporte</a></li>
+    </ul>
 </li>
+
   

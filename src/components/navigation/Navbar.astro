@@ -14,20 +14,17 @@ import NavbarMobileButton from "@components/navigation/NavbarMobileButton.astro"
     </div>
 
     <ul class="hidden lg:bg-transparent lg:flex items-center justify-center p-4 mt-4 font-medium rounded-lg lg:flex-row lg:space-x-8 md:mt-0">
-      <NavButton name="INICIO" url="/" />
-      <NavButton name="SOBRE NOSOTROS" url="/about-us" />
-      <NavButton name="EVENTOS" url="/eventos" />
-      <NavButton name="CATÁLOGO" url="/catalogo" />
-      <NavButton name="CLIENTES" url="/clientes" />
-      <NavButton name="CONTACTO" url="/contacto" />
+      <NavButton name="INICIO" url="/" style="group"/>
+      <NavButton name="SOBRE NOSOTROS" url="/about-us" style="group"/>
+      <NavButton name="EVENTOS" url="/eventos" style="group"/>
+      <NavButton name="CATÁLOGO" url="/catalogo" style="group group/menu"/>
+      <NavButton name="CLIENTES" url="/clientes" style="group"/>
+      <NavButton name="CONTACTO" url="/contacto" style="group"/>
       <a href="https://oxygengaming.es/">
         <button class="text-[#1AA9FF] border-2 border-[#1AA9FF] bg-white font-bold rounded px-[16px] py-[8px] sm:px-[10px] sm:py-[8px] transition-all duration-300 hover:bg-[#1AA9FF] hover:text-white">
           Oxygen Gaming
         </button>
-      </a>
-      
-      
-            
+      </a>  
     </ul>
   </div>
 

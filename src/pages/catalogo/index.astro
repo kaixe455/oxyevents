@@ -10,13 +10,21 @@ import logo from "@svgs/logo/o2glogo.svg"
 <Layout title="Oxygen Gaming Eventos - Alquila equipamiento para tu evento">
   <main class="text-white max-[320px]:mt-[50px] min-[568px]:mt-[100px]">
 
+    
+
     <div class="w-full flex flex-col items-center justify-center xl:h-[100vh] sm:h-[90vh] md:h-[50vh] h-[45vh]">
       <div class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem] md:mt-[-20vh]">
         <Section title="Catálogo" />
       </div>
+
+      <div class="font-roboto font-bold text-center flex justify-center gap-[50px] h-[50%] lg:mt-[-30vh] items-center flex-col">
+        <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto`} class="mb-0 md:mb-[20rem] md:landscape:mb-[-10rem] lg:landscape:mb-[45rem] xl:mt-[150px] inline-block px-12 py-4 rounded-lg font-bold text-[25px] transition transform hover:-translate-y-1 hover:shadow-lg bg-white text-[#1AA9FF] hover:from-[#00487a] hover:to-[#007acc] ">Solicitar Presupuesto</a>
+      </div>
+      
       <div class="hidden sm:flex lg:flex z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
         <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/Header_Posters.webp" alt="">
       </div>
+      
 
       <div class="flex sm:hidden lg:hidden z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
         <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full min-[568px]:h-[90vh]" src="/imgs/View_Poster_3.webp" alt="">
@@ -28,16 +36,17 @@ import logo from "@svgs/logo/o2glogo.svg"
         
         <div class="flex justify-center items-center scroll-mt-[300px]"  id="gaming">
           <GamingCarrousel />
+          
         </div>
 
-        <div class=" bg-[white] xl:h-[60rem]">
+        <div class=" bg-[white] xl:h-[60rem]" id="ponencias">
           <div class="w-full flex flex-col justify-center items-center gap-10 bg-[white] h-[80%] text-black">
             <h1 class="text-4xl font-bold text-mainblue text-center">CHARLAS Y TALLERES</h1>
             <p class="text-lg text-justify max-w-4xl px-4">
               Creemos que es fundamental que la tecnología y la educación vayan de la mano. 
               Por ello colaboramos con diferentes empresas del sector tecnológico para ofrecer charlas y talleres de la mayor calidad.
-              Si te interesa un taller de alguna temática relacionada, ¡No dudes en preguntar!
-            </p>
+              Si te interesa un taller de alguna temática relacionada, ¡No dudes en preguntar!. <a class="text-blue-700">Toca las tarjetas para mas información</a></p>
+            
     
             <div class="grid grid-cols:1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-[45px] xl:mb-[-10rem]">
               <div class="group h-[25rem] w-80 [perspective:1000px]">
@@ -57,6 +66,9 @@ import logo from "@svgs/logo/o2glogo.svg"
                     </div>
                   </div>
                 </div>
+                <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para la charla "Trabajar con videojuegos"`} class="w-full  text-center justify-center relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                  <button>Solicitar Presupuesto</button>
+                </a>
               </div>
 
               <div class="group h-[25rem] w-80 [perspective:1000px]">
@@ -75,6 +87,9 @@ import logo from "@svgs/logo/o2glogo.svg"
                     </div>
                   </div>
                 </div>
+                <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para la charla "El mundo de los videojuegos"`} class="w-full  text-center justify-center relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                  <button>Solicitar Presupuesto</button>
+                </a>
               </div>
 
               <div class="group h-[25rem] w-80 [perspective:1000px]">
@@ -95,6 +110,9 @@ import logo from "@svgs/logo/o2glogo.svg"
                     </div>
                   </div>
                 </div>
+                <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para la charla "Deporte, Tecnología y Educación"`} class="w-full  text-center justify-center relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                  <button>Solicitar Presupuesto</button>
+                </a>
               </div>
 
               <div class="group h-[25rem] w-80 [perspective:1000px]">
@@ -113,10 +131,14 @@ import logo from "@svgs/logo/o2glogo.svg"
                     </div>
                   </div>
                 </div>
+                <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para Talleres`} class=" w-full text-center relative z-10 mt-10 inline-flex items-center justify-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                  <button>Solicitar Presupuesto</button>
+                </a>
               </div>
             </div>
           </div>
         </div>
+        
       </div>
     
 

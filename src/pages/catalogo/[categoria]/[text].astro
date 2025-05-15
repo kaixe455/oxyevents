@@ -26,11 +26,19 @@ const item = items.find(i => i.text === text && i.categoria === categoria);
             <div class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2">
               <h3 class="font-bold text-[25px]">{item.text}</h3>
               <span class="lg:w-[80%]">{item.descripcion}</span>
-              <a href="/catalogo">
-                <button class="relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
-                  Volver
-                </button>
-              </a>
+              
+              <div>
+                <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para ${item.text}`} class="relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                  <button>Solicitar Presupuesto</button>
+                </a>
+                <a href="/catalogo">
+                  <button class="relative z-10 mt-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
+                    Volver
+                  </button>
+                  
+                </a>
+                
+              </div>
             </div>
           </div>
   </main>

@@ -1,18 +1,84 @@
 ---
 import EventCard from "@components/cards/EventCard.astro";
+import Section from "@components/Section.astro";
 import { events } from "@components/EventsList.astro";
 
-
 const imagesAlbal = ["event1.webp", "event2.webp"];
+const now = new Date();
 
+// Convierte "DD-MM-YYYY" a objeto Date
+const parseDate = (str) => {
+  if (!str) return null;
+  // Si la fecha tiene un rango "27-12-2023 / 28-12-2023", tomamos la primera
+  const datePart = str.split(" / ")[0];
+  const [day, month, year] = datePart.split("-").map(Number);
+  return new Date(year, month - 1, day);
+};
 
+const upcoming = [];
+const ongoing = [];
+const recent = [];
+const finished = [];
 
+events.forEach((event) => {
+  const eventDate = parseDate(event.date);
+  if (!eventDate) return;
+
+  const diff = now - eventDate;
+  const diffDays = diff / (1000 * 60 * 60 * 24);
+
+  if (eventDate > now) {
+    upcoming.push(event);
+  } else if (
+    eventDate.getDate() === now.getDate() &&
+    eventDate.getMonth() === now.getMonth() &&
+    eventDate.getFullYear() === now.getFullYear()
+  ) {
+    ongoing.push(event);
+  } else if (diffDays <= 60) {
+    recent.push(event);
+  } else {
+    finished.push(event);
+  }
+});
 ---
-
-<div class="grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
-  {events.map((event) => (
+<!-- 🟢 Próximos torneos -->
+{upcoming.length > 0 && <Section title="Próximos Torneos" />}
+<div class="mt-2 grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
+  {upcoming.map((event) => (
     <div class="flex justify-center items-center w-full">
       <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
     </div>
   ))}
 </div>
+
+<!-- 🟡 En curso -->
+{ongoing.length > 0 && <Section title="Torneos en Curso" />}
+<div class="mt-2 grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
+  {ongoing.map((event) => (
+    <div class="flex justify-center items-center w-full">
+      <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
+    </div>
+  ))}
+</div>
+
+<!-- 🔵 Recientes -->
+{recent.length > 0 && <Section title="Torneos Recientes" />}
+<div class="mt-2 grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
+  {recent.map((event) => (
+    <div class="flex justify-center items-center w-full">
+      <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
+    </div>
+  ))}
+</div>
+
+<!-- ⚫ Finalizados -->
+{finished.length > 0 && <Section title="Torneos Finalizados" />}
+<div class="mt-2 grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7">
+  {finished.map((event) => (
+     <div class="opacity-60 grayscale-[50%] blur-[0.5px] hover:opacity-100 hover:grayscale-0 hover:blur-0 transition duration-300">
+      <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
+    </div>
+  ))}
+</div>
+
