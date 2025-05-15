@@ -4,64 +4,27 @@ import RatingStars from "@components/sections/RatingStars.astro";
 const resenas = [
   {
     texto:
-      "Increíble experiencia de compra. El producto llegó a tiempo y en perfectas condiciones.",
-    autor: "Laura Vargas",
+      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
     calificacion: 5,
   },
   {
     texto:
-      "La calidad de los materiales es excelente. Estoy muy contento con mi compra.",
-    autor: "Pedro Infante",
-    calificacion: 4,
-  },
-  {
-    texto:
-      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
-    autor: "Sofía Mendoza",
-    calificacion: 5,
-  },
-  {
-    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
-    autor: "Carlos López",
-    calificacion: 3,
-  },
-  {
-    texto:
-      "Increíble experiencia de compra. El producto llegó a tiempo y en perfectas condiciones.",
-    autor: "Laura Vargas",
+      "Entretenimiento, movimiento y diversión virtual",
+    autor: "Lidia Gargallo, técnica de juventud de la Mancomunidad Espadán-Mijares.",
     calificacion: 5,
   },
   {
     texto:
-      "La calidad de los materiales es excelente. Estoy muy contento con mi compra.",
-    autor: "Pedro Infante",
-    calificacion: 4,
-  },
-  {
-    texto:
-      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
-    autor: "Sofía Mendoza",
+      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
     calificacion: 5,
-  },
-  {
-    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
-    autor: "Carlos López",
-    calificacion: 3,
-  },
-  {
-    texto:
-      "Un servicio excepcional. Tuve un problema y lo resolvieron de inmediato.",
-    autor: "Sofía Mendoza",
-    calificacion: 5,
-  },
-  {
-    texto: "Buen producto, cumple su función aunque podría mejorar un poco.",
-    autor: "Carlos López",
-    calificacion: 3,
   },
 ];
 
-const slidesToShow = 1; // Número de reseñas a mostrar en pantallas grandes
+const slidesToShow = 1;
+const numResenasOriginales = resenas.length;
+
 ---
 
 <div class="resenas-carrusel-container  flex flex-col items-center justify-center" id="resenasCarrusel">
@@ -72,7 +35,7 @@ const slidesToShow = 1; // Número de reseñas a mostrar en pantallas grandes
           <div class="resena-contenido">
             <RatingStars rating={resena.calificacion} />
             <p class="text-black">"{resena.texto}"</p>
-            <p class="autor">- {resena.autor}</p>
+            <p class="autor text-[13px] ">- {resena.autor}</p>
           </div>
         </div>
       ))
@@ -105,15 +68,29 @@ const slidesToShow = 1; // Número de reseñas a mostrar en pantallas grandes
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  /* Media query para pantallas pequeñas */
-  @media (max-width: 767px) {
-    .resena-item {
-      width: 50px;
-    }
-    .resenas-carrusel-track{
-      margin-left: 50px;
-    }
++@media (max-width: 767px) {
+  .resenas-carrusel-track {
+    display: flex;
+    gap: 20px; /* Espacio entre elementos */
+    margin-left: 30%;
   }
+
+  .resena-item {
+    flex: 0 0 300px; /* Ancho fijo para cada elemento */
+    max-width: 300px; /* Ancho máximo para cada elemento */
+  }
+
+  .resena-contenido p {
+    font-size: 14px;
+  }
+
+  .resena-contenido .autor {
+    font-size: 12px;
+  }
+}
+
+
+
   /* Media query para pantallas pequeñas en horizontal */
   @media (max-width: 767px) and (orientation: landscape) {
     .resena-item {
@@ -148,40 +125,68 @@ const slidesToShow = 1; // Número de reseñas a mostrar en pantallas grandes
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const carruselContainer = document.getElementById('resenasCarrusel');
-    const carruselTrack = carruselContainer?.querySelector('.resenas-carrusel-track') as HTMLDivElement | null;
-    const resenaItems = carruselTrack?.querySelectorAll('.resena-item') as NodeListOf<HTMLElement> | null;
-    const intervalTime = 3000;
-    let currentIndex = 0;
-    let slidesToShow = 3;
+  // En tu archivo de carrusel
+const carruselTrack = document.querySelector(".resenas-carrusel-track");
+const resenaItems = document.querySelectorAll(".resena-item");
+const intervalTime = 3000;
+let currentIndex = 1;
 
-    if (carruselContainer && carruselTrack && resenaItems && resenaItems.length > slidesToShow) {
-      const numResenas = resenaItems.length;
-      const itemWidth = resenaItems?.[0]?.offsetWidth || 0;
-      const gapWidth = parseInt(getComputedStyle(carruselTrack).gap, 10) || 0;
-      const totalItemWidth = itemWidth + gapWidth;
-      const centerOffset = (carruselContainer.offsetWidth - totalItemWidth * slidesToShow) / 15;
-      let scrollPosition = 0;
+// Calcula el ancho total del carrusel
+const totalWidth = carruselTrack.scrollWidth;
 
-      function scrollToMiddle() {
-        if (carruselTrack) {
-          scrollPosition = -currentIndex * totalItemWidth + centerOffset;
-          carruselTrack.style.transform = `translateX(${scrollPosition}px)`;
-        }
-      }
+// Clona el primer y último elemento
+const firstClone = resenaItems[0].cloneNode(true);
+const lastClone = resenaItems[resenaItems.length - 1].cloneNode(true);
+carruselTrack.appendChild(firstClone);
+carruselTrack.insertBefore(lastClone, resenaItems[0]);
 
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % numResenas;
-        scrollToMiddle();
-      }
+function updateSlide() {
+  // Calcula la posición del carrusel
+  const itemWidth = resenaItems[0].offsetWidth + 20; // suma el gap
+  carruselTrack.style.transition = "transform 0.5s ease-in-out";
+  carruselTrack.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+}
 
-      scrollToMiddle();
+const resenas = [
+  {
+    texto:
+      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
+    calificacion: 5,
+  },
+  {
+    texto:
+      "Entretenimiento, movimiento y diversión virtual",
+    autor: "Lidia Gargallo, técnica de juventud de la Mancomunidad Espadán-Mijares.",
+    calificacion: 5,
+  },
+  {
+    texto:
+      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
+    calificacion: 5,
+  },
+];
 
-      setInterval(nextSlide, intervalTime);
-    } else if (carruselContainer) {
-      // Si no hay suficientes reseñas, centrar el contenido
-      carruselContainer.style.justifyContent = 'center';
-    }
-  });
+const numResenasOriginales = resenas.length;
+
+function nextSlide() {
+  if (currentIndex >= numResenasOriginales) {
+    // Si llegamos al final de las reseñas originales, volvemos al principio
+    currentIndex = 0;
+    document.querySelector(".resenas-carrusel-track").style.transition = "none";
+    document.querySelector(".resenas-carrusel-track").style.transform = `translateX(0px)`;
+    setTimeout(() => {
+      document.querySelector(".resenas-carrusel-track").style.transition = "transform 0.5s ease-in-out";
+    }, 100);
+  } else {
+    currentIndex++;
+    updateSlide();
+  }
+}
+
+updateSlide();
+setInterval(nextSlide, intervalTime);
+
+
 </script>
