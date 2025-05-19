@@ -1,4 +1,5 @@
 ---
+// RatingStars sigue siendo usado
 import RatingStars from "@components/sections/RatingStars.astro";
 
 const resenas = [
@@ -21,172 +22,71 @@ const resenas = [
     calificacion: 5,
   },
 ];
-
-const slidesToShow = 1;
-const numResenasOriginales = resenas.length;
-
 ---
 
-<div class="resenas-carrusel-container  flex flex-col items-center justify-center" id="resenasCarrusel">
-  <div class="resenas-carrusel-track ">
-    {
-      [...resenas, ...resenas.slice(0, slidesToShow)].map((resena) => (
-        <div class="resena-item border-[5px]">
-          <div class="resena-contenido">
-            <RatingStars rating={resena.calificacion} />
-            <p class="text-black">"{resena.texto}"</p>
-            <p class="autor text-[13px] ">- {resena.autor}</p>
-          </div>
-        </div>
-      ))
-    }
-  </div>
+<div class="resenas-container">
+  {resenas.map((resena) => (
+    <div class="resena-card">
+      <div class="resena-content">
+        <RatingStars rating={resena.calificacion} />
+        <p class="resena-text">"{resena.texto}"</p>
+        <p class="resena-autor">- {resena.autor}</p>
+      </div>
+    </div>
+  ))}
 </div>
 
 <style>
-  .resenas-carrusel-container {
-    overflow-x: hidden; 
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centrar el track initially */
+  .resenas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 2rem;
+    justify-items: center;
   }
 
-  .resenas-carrusel-track {
-    display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    transition: 0.5s ease-in-out; /* Transición para el desplazamiento */
-  }
-
-  .resena-item {
-    flex: 0 0 calc(33.333% - 13.333px); /* Ancho para mostrar 3 items con gap */
-    border-radius: 8px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .resena-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    width: 100%;
   }
 
-+@media (max-width: 767px) {
-  .resenas-carrusel-track {
-    display: flex;
-    gap: 20px; /* Espacio entre elementos */
-    margin-left: 30%;
+  .resena-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
   }
 
-  .resena-item {
-    flex: 0 0 300px; /* Ancho fijo para cada elemento */
-    max-width: 300px; /* Ancho máximo para cada elemento */
-  }
-
-  .resena-contenido p {
-    font-size: 14px;
-  }
-
-  .resena-contenido .autor {
-    font-size: 12px;
-  }
-}
-
-
-
-  /* Media query para pantallas pequeñas en horizontal */
-  @media (max-width: 767px) and (orientation: landscape) {
-    .resena-item {
-      width: 50px;
-    }
-    .resenas-carrusel-track {
-      margin-left: 0px;
-    }
-  }
-
-  .resena-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .resena-contenido {
+  .resena-content {
     text-align: center;
   }
 
-  .resena-contenido p:first-child {
-    margin-top: 0;
+  .resena-text {
     font-style: italic;
     color: #1aa9ff;
+    margin: 1rem 0;
   }
 
-  .resena-contenido .autor {
+  .resena-autor {
     font-weight: bold;
     color: #333;
-    margin-bottom: 0;
+    font-size: 0.9rem;
   }
-  
+
+  @media (max-width: 640px) {
+    .resena-card {
+      padding: 1rem;
+    }
+
+    .resena-text {
+      font-size: 0.95rem;
+    }
+
+    .resena-autor {
+      font-size: 0.8rem;
+    }
+  }
 </style>
-
-<script>
-  // En tu archivo de carrusel
-const carruselTrack = document.querySelector(".resenas-carrusel-track");
-const resenaItems = document.querySelectorAll(".resena-item");
-const intervalTime = 3000;
-let currentIndex = 1;
-
-// Calcula el ancho total del carrusel
-const totalWidth = carruselTrack.scrollWidth;
-
-// Clona el primer y último elemento
-const firstClone = resenaItems[0].cloneNode(true);
-const lastClone = resenaItems[resenaItems.length - 1].cloneNode(true);
-carruselTrack.appendChild(firstClone);
-carruselTrack.insertBefore(lastClone, resenaItems[0]);
-
-function updateSlide() {
-  // Calcula la posición del carrusel
-  const itemWidth = resenaItems[0].offsetWidth + 20; // suma el gap
-  carruselTrack.style.transition = "transform 0.5s ease-in-out";
-  carruselTrack.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-}
-
-const resenas = [
-  {
-    texto:
-      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
-    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
-    calificacion: 5,
-  },
-  {
-    texto:
-      "Entretenimiento, movimiento y diversión virtual",
-    autor: "Lidia Gargallo, técnica de juventud de la Mancomunidad Espadán-Mijares.",
-    calificacion: 5,
-  },
-  {
-    texto:
-      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
-    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
-    calificacion: 5,
-  },
-];
-
-const numResenasOriginales = resenas.length;
-
-function nextSlide() {
-  if (currentIndex >= numResenasOriginales) {
-    // Si llegamos al final de las reseñas originales, volvemos al principio
-    currentIndex = 0;
-    document.querySelector(".resenas-carrusel-track").style.transition = "none";
-    document.querySelector(".resenas-carrusel-track").style.transform = `translateX(0px)`;
-    setTimeout(() => {
-      document.querySelector(".resenas-carrusel-track").style.transition = "transform 0.5s ease-in-out";
-    }, 100);
-  } else {
-    currentIndex++;
-    updateSlide();
-  }
-}
-
-updateSlide();
-setInterval(nextSlide, intervalTime);
-
-
-</script>
