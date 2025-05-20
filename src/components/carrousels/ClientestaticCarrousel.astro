@@ -14,7 +14,7 @@ const restClients = clients.slice(12);
 </div>
 
 <!-- Este div debe estar oculto por defecto -->
-<div id="extra-clients" class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 hidden">
+<div id="extra-clients" class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
   {restClients.map((client) => (
     <div class="col-span-1 p-4">
       <ClientCard name={client.name} img={client.img} />
