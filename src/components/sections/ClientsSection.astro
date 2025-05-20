@@ -15,9 +15,65 @@ const clientes = clients.slice(14, 20);
     </p>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-10 justify-items-center">
-    {clientes.map(client => (
-      <ClientCard name={client.name} img={client.img} />
-    ))}
+  <div class="carousel-container relative overflow-hidden mt-10 max-w-[1500px] mx-auto">
+    <div class="carousel-track flex transition-transform duration-700 ease-in-out">
+      {clientes.map(client => (
+        <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2">
+          <ClientCard name={client.name} img={client.img} />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .carousel-container {
+    height: 320px;
+  }
+</style>
+
+<script>
+  // Esto solo corre en el cliente (browser)
+  if (typeof window !== 'undefined') {
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+
+    let currentIndex = 0;
+
+    // Calcula cuántos items mostrar segun el ancho actual
+    function getVisibleCount() {
+      const width = window.innerWidth;
+      if (width < 640) return 1;
+      if (width < 768) return 2;
+      return 3;
+    }
+
+    function moveCarousel() {
+      const visibleCount = getVisibleCount();
+
+      currentIndex++;
+      if (currentIndex > totalItems - visibleCount) {
+        currentIndex = 0;
+      }
+
+      const itemWidth = items[0].getBoundingClientRect().width + 16; // ancho item + padding px
+      const distance = itemWidth * currentIndex;
+
+      track.style.transform = `translateX(-${distance}px)`;
+    }
+
+    let intervalId = setInterval(moveCarousel, 3000);
+
+    // Si quieres que el carrusel se adapte al resize
+    window.addEventListener('resize', () => {
+      // Reinicia posición y timer
+      currentIndex = 0;
+      track.style.transform = `translateX(0)`;
+      clearInterval(intervalId);
+      intervalId = setInterval(moveCarousel, 3000);
+    });
+  }
+</script>
+
+
