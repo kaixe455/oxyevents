@@ -1,147 +1,144 @@
 ---
 import { clients } from "@components/ClientsList.astro";
 
-
 const resenas = [
-  {
-    texto:
-      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
-    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
-    logo_ayuntamiento: "Logo D_alcala de Xivert Alcossebre",
-  },
-  {
-    texto:
-      "Entretenimiento, movimiento y diversión virtual",
-    autor: "Lidia Gargallo, técnica de juventud de la Mancomunidad Espadán-Mijares.",
-    logo_ayuntamiento: "",
-  },
-  {
-    texto:
-      "Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
-    autor: "Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
-    logo_ayuntamiento: "Logo D_alcala de Xivert Alcossebre",
-  },
+	{
+		texto:
+			"Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+		autor:
+			"Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
+		logo_ayuntamiento: "Logo D_alcala de Xivert Alcossebre",
+	},
+	{
+		texto: "Entretenimiento, movimiento y diversión virtual",
+		autor:
+			"Lidia Gargallo, técnica de juventud de la Mancomunidad Espadán-Mijares.",
+		logo_ayuntamiento: "Logo-Mancomunidad-Espadan",
+	},
+	{
+		texto:
+			"Oxygen Gaming aportó profesionalidad, innovación y diversión, creando un evento inolvidable para nuestra comunidad",
+		autor:
+			"Icíar Valero, coordinadora de juventud del ayuntamiento Alcalà de Xivert.",
+		logo_ayuntamiento: "Logo D_alcala de Xivert Alcossebre",
+	},
 ];
-
 ---
 
 <div class="resenas-container">
-  {resenas.map((resena) => {
-    return (
-      <div class="resena-card">
-        <div class="resena-content">
-          <img
-              src={`/clientes_actualizados/${resena.logo_ayuntamiento}.webp`}
-              class="ayuntamiento-logo"
-            />
-          <p class="resena-text">"{resena.texto}"</p>
-          <div class="resena-autor-container">  
-            <p class="resena-autor">- {resena.autor}</p>
-          </div>
-        </div>
-      </div>
-    );
-  })}
-
-
-
-
+	{
+		resenas.map((resena) => {
+			return (
+				<div class="resena-card">
+					<div class="resena-content">
+						<img
+							src={`/clientes_actualizados/${resena.logo_ayuntamiento}.webp`}
+							class="ayuntamiento-logo"
+						/>
+						<p class="resena-text">"{resena.texto}"</p>
+						<div class="resena-autor-container">
+							<p class="resena-autor">- {resena.autor}</p>
+						</div>
+					</div>
+				</div>
+			);
+		})
+	}
 </div>
 
 <style>
-  .resenas-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    padding: 2rem 1rem;
-    justify-items: center;
-    font-family: 'Poppins', sans-serif;
-  }
+	.resenas-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 24px;
+		padding: 2rem 1rem;
+		justify-items: center;
+		font-family: "Poppins", sans-serif;
+	}
 
-  .resena-card {
-    background: linear-gradient(135deg, #fefefe 0%, #e3f2fd 100%);
-    border-radius: 20px;
-    padding: 1.75rem 2rem;
-    max-width: 400px;
-    box-shadow:
-      3px 3px 8px rgba(0, 0, 0, 0.12),
-      -3px -3px 8px rgba(255, 255, 255, 0.7);
-    position: relative;
-    border: 2px solid #90caf9;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: default;
-  }
+	.resena-card {
+		background: linear-gradient(135deg, #fefefe 0%, #e3f2fd 100%);
+		border-radius: 20px;
+		padding: 1.75rem 2rem;
+		max-width: 400px;
+		box-shadow:
+			3px 3px 8px rgba(0, 0, 0, 0.12),
+			-3px -3px 8px rgba(255, 255, 255, 0.7);
+		position: relative;
+		border: 2px solid #90caf9;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease,
+			border-color 0.3s ease;
+		cursor: default;
+	}
 
-  .resena-card:hover {
-    transform: translateY(-8px) rotate(-1deg);
-    box-shadow:
-      6px 6px 15px rgba(0, 0, 0, 0.18),
-      -6px -6px 15px rgba(255, 255, 255, 0.85);
-    border-color: #42a5f5;
-  }
+	.resena-card:hover {
+		transform: translateY(-8px) rotate(-1deg);
+		box-shadow:
+			6px 6px 15px rgba(0, 0, 0, 0.18),
+			-6px -6px 15px rgba(255, 255, 255, 0.85);
+		border-color: #42a5f5;
+	}
 
-  .resena-text {
-    font-style: normal;
-    color: black;
-    font-weight: 600;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.015em;
-    user-select: text;
-  }
+	.resena-text {
+		font-style: normal;
+		color: black;
+		font-weight: 600;
+		font-size: 1.1rem;
+		line-height: 1.5;
+		margin-bottom: 1.5rem;
+		letter-spacing: 0.015em;
+		user-select: text;
+	}
 
-  .resena-autor-container {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+	.resena-autor-container {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+	}
 
-  .ayuntamiento-logo {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 8px;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
-  padding: 12px;
+	.ayuntamiento-logo {
+		width: 180px;
+		height: 180px;
+		object-fit: contain;
+		border-radius: 8px;
+		filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+		padding: 12px;
 
-  display: block;
-  margin: 0 auto;
-}
+		display: block;
+		margin: 0 auto;
+	}
 
+	.resena-autor {
+		font-weight: 700;
+		color: #0d47a1;
+		font-size: 0.95rem;
+		user-select: none;
+	}
 
+	@media (max-width: 640px) {
+		.resenas-container {
+			grid-template-columns: 1fr;
+		}
 
-  .resena-autor {
-    font-weight: 700;
-    color: #0d47a1;
-    font-size: 0.95rem;
-    user-select: none;
-  }
+		.resena-card {
+			max-width: 100%;
+			padding: 1.5rem 1.5rem;
+		}
 
+		.resena-text {
+			font-size: 1rem;
+			margin-bottom: 1.2rem;
+		}
 
-  @media (max-width: 640px) {
-    .resenas-container {
-      grid-template-columns: 1fr;
-    }
+		.resena-autor {
+			font-size: 0.85rem;
+		}
 
-    .resena-card {
-      max-width: 100%;
-      padding: 1.5rem 1.5rem;
-    }
-
-    .resena-text {
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .resena-autor {
-      font-size: 0.85rem;
-    }
-
-    .ayuntamiento-logo {
-      width: 36px;
-      height: 36px;
-
-    }
-  }
+		.ayuntamiento-logo {
+			width: 36px;
+			height: 36px;
+		}
+	}
 </style>
