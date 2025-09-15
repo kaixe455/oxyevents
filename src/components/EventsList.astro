@@ -1,34 +1,312 @@
 ---
 export const events = [
-  { name: "Valencia", img: "Poster_de_Gaming_X_Deport_40.webp", date: "31-05-2025", description: "Una experiencia única con competiciones de videojuegos y actividades deportivas." },
-  { name: "CASTELLON", img: "Poster de Gaming X Deport 39.webp", date: "05-04-2025", description: "Una experiencia única con competiciones de videojuegos y actividades deportivas." },
-  { name: "EDIFICI POLIFUNCIONAL GUILLEM AGULLO", img: "Poster de Gaming X Deport 36.webp", date: "04-01-2025", description: "Un evento de gaming y deporte en un espacio moderno y multifuncional." },
-  { name: "ESPAI JOVE CHIVA", img: "Poster de Gaming X Deport 34.webp", date: "02-01-2025", description: "Jornada interactiva para jóvenes con torneos de videojuegos y actividades deportivas." },
-  { name: "PLAZA DE AMISTAT", img: "Poster de Gaming X Deport 33.webp", date: "30-12-2024", description: "Competencias de eSports al aire libre con zonas de entretenimiento y desafíos deportivos." },
-  { name: "PUZOL", img: "Poster de Gaming X Deport 32.webp", date: "30-12-2024", description: "Encuentro de gaming con estaciones de juego y torneos en un ambiente dinámico." },
-  { name: "MERCADO DE CASAS IBAÑEZ", img: "Poster de Gaming X Deport 31.webp", date: "29-12-2024", description: "Evento que fusiona el mundo gamer con actividades físicas en un entorno único." },
-  { name: "EDIFICI POLIFUNCIONAL ALCORA", img: "Poster de Gaming X Deport 30.webp", date: "28-12-2024", description: "Diversión asegurada con competiciones de videojuegos y retos físicos para todos." },
-  { name: "SALON POLIVALENTE DE SANIRCAS", img: "Poster de Gaming X Deport 37.webp", date: "27-12-2024", description: "Torneos de gaming y actividades deportivas en un ambiente acogedor y dinámico." },
-  { name: "MUSEROS", img: "Poster de Gaming X Deport 26.webp", date: "27-12-2024", description: "Espacio de diversión con juegos competitivos y actividades recreativas." },
-  { name: "CEIP STA M.MAGDALENA", img: "Poster de Gaming X Deport 28.webp", date: "23-12-2024", description: "Un día lleno de videojuegos y actividades físicas para todas las edades." },
-  { name: "CAMPOS DE RIO", img: "Poster de Gaming X Deport 35.webp", date: "20-12-2024", description: "Competencias de videojuegos y deportes en un entorno natural y vibrante." },
-  { name: "CASAL IBAÑEZ", img: "Poster de Gaming X Deport 24.webp", date: "27-04-2024", description: "Evento recreativo con torneos de gaming y experiencias deportivas." },
-  { name: "AYUNTAMIENTO DE PUZOL", img: "Poster de Gaming X Deport 19.webp", date: "03-01-2024", description: "Torneo de videojuegos y pruebas deportivas en un espacio emblemático." },
-  { name: "AYUNTAMIENTO SANT JOAN DE MORO", img: "Poster de Gaming X Deport 22.webp", date: "02-01-2024", description: "Evento que combina videojuegos y deportes en una experiencia única." },
-  { name: "AYUNTAMIENTO DE TALES", img: "Poster de Gaming X Deport 15.webp", date: "29-12-2023", description: "Un día repleto de gaming competitivo y actividades deportivas para todos." },
-  { name: "MELIANA", img: "Poster de Gaming X Deport 29.webp", date: "26-12-2023", description: "Espacio de entretenimiento con consolas de última generación y retos deportivos." },
-  { name: "TEULADA", img: "Poster de Gaming X Deport 14.webp", date: "27-12-2023 / 28-12-2023", description: "Doble jornada con torneos de eSports y pruebas físicas emocionantes." },
-  { name: "CEIP LOPE VEGA", img: "Poster de Gaming X Deport 13.webp", date: "28-10-2023", description: "Competencias de videojuegos y actividades recreativas para todos los públicos." },
-  { name: "UNIVERSIDAD MIGUEL HERNANDEZ 1", img: "Poster de Gaming X Deport 12.webp", date: "06-11-2023", description: "Evento universitario con torneos de gaming y dinámicas deportivas innovadoras." },
-  { name: "UNIVERSIDAD MIGUEL HERNANDEZ 2", img: "Poster de Gaming X Deport 11.webp", date: "16-10-2023", description: "Competencias estudiantiles de videojuegos y pruebas físicas en equipo." },
-  { name: "ALQUERIES", img: "Poster de Gaming X Deport 9.webp", date: "04-10-2023", description: "Jornada recreativa con competiciones de gaming y actividades deportivas." },
-  { name: "CALLE JAI ALAI", img: "Poster de Gaming X Deport 8.webp", date: "11-08-2023", description: "Torneos de videojuegos en un ambiente urbano con desafíos deportivos." },
-  { name: "CASAL JOVE ALBALX", img: "Poster de Gaming X Deport 7.webp", date: "15-07-2023", description: "Día de diversión con juegos, retos deportivos y premios para los ganadores." },
-  { name: "PLAZA TIRANT GANDIA", img: "Poster de Gaming X Deport 6.webp", date: "22-04-2023", description: "Evento al aire libre con estaciones de juego y actividades deportivas." },
-  { name: "UNIVERSIDAD CATOLICA DE VALENCIA", img: "Poster de Gaming X Deport 5.webp", date: "09-03-2023", description: "Competencias de videojuegos y desafíos físicos en un entorno académico." },
-  { name: "FALLA PLAZA LA MORERIA", img: "Poster de Gaming X Deport 2.webp", date: "12-03-2023", description: "Evento fallero con torneos de gaming y actividades deportivas tradicionales." },
-  { name: "FALLA NOVA DORRIOLS", img: "Poster de Gaming X Deport 4.webp", date: "15-03-2023", description: "Fiesta fallera con videojuegos, pruebas físicas y premios para los participantes." }
+	{
+		name: "HELLÍN",
+		img: "CARTEL HELLÍN.webp",
+		date: "12-09-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf",
+	},
+	{
+		name: "YESTE",
+		img: "Cartel Yeste.webp",
+		date: "18-08-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "LA POBLETA",
+		img: "Cartel La Pobleta.webp",
+		date: "15-08-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "ALEDO",
+		img: "CARTEL ALEDO.webp",
+		date: "13-08-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5.",
+	},
+	{
+		name: "ANDILLA",
+		img: "Cartel Andilla.webp",
+		date: "09-08-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "ARTAJ",
+		img: "Cartel Artaj.webp",
+		date: "05-08-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "VILLAMALEA",
+		img: "Cartel Manserman.webp",
+		date: "31-07-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte...",
+	},
+	{
+		name: "VALDEGANGA",
+		img: "Cartel Valdeganga.webp",
+		date: "25-07-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5.",
+	},
+	{
+		name: "TARAZONA DE LA MANCHA",
+		img: "Cartel Tarazona.webp",
+		date: "22-07-2025",
+		description:
+			"En las V Jornadas Nocturnas de Tarazona de la Mancha podrás formar tu equipo y competir en primer día a las actividades deportivas, voleibol y mini golf y en la parte digital en el videojuegos Mario Kart y en una variedad de retos con realidad virtual. En la segunda jornada los deportes donde se medirán las habilidades serán béisbol y hockey y en la parte tecnológica, EA FC y realidad virtual.",
+	},
+	{
+		name: "BORRIOL",
+		img: "Cartel Borriol.webp",
+		date: "27-07-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "LA MATA",
+		img: "Cartel La Mata.webp",
+		date: "05-07-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás demostrar tu puntería en la zona de mini golf.",
+	},
+	{
+		name: "MUNIESA",
+		img: "Cartel Muniesa.webp",
+		date: "01-06-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5.",
+	},
+	{
+		name: "PALMA DE GANDIA",
+		img: "Cartel Palma de Gandia.webp",
+		date: "25-05-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además podrás probar una experiencia única en nuestro simulador de vuelo ICAROS.",
+	},
+	{
+		name: "PINOSO",
+		img: "Cartel Pinoso.webp",
+		date: "09-05-2025",
+		description:
+			"En el evento disfrutarás de una experiencia única que combina tecnología, videojuegos y deporte. Pon a prueba tu destreza en el simulador de conducción, vive la inmersión total con la realidad virtual, muestra tu coordinación con las plataformas de baile y compite con amigos en consolas de última generación como Nintendo Switch y PlayStation 5. Además, en la zona deportiva, podrás practicar patinaje y hockey.",
+	},
+	{
+		name: "BUÑOL",
+		img: "Cartel Buñol.webp",
+		date: "fecha evento formato DD-MM-YYYY",
+		description:
+			"Nuestros eventos gaming y tecnológicos ofrecen una experiencia inmersiva para todas las edades, combinando videojuegos, simuladores y deporte en un mismo espacio. Vive la velocidad con los simuladores de conducción, despega en el simulador de vuelo y descubre nuevos mundos con la realidad virtual. Disfruta de las máquinas arcade, la Nintendo Switch y la PlayStation 5, o pon a prueba tu ritmo en las plataformas de baile. Además, incorporamos actividades deportivas como minigolf, bádminton, voleibol o hockey, creando una propuesta innovadora donde lo digital y lo físico se unen.",
+	},
+	{
+		name: "MISLATA",
+		img: "Cartel Mislata.webp",
+		date: "fecha evento formato DD-MM-YYYY",
+		description:
+			"Nuestros eventos gaming y tecnológicos ofrecen una experiencia inmersiva para todas las edades, combinando videojuegos, simuladores y deporte en un mismo espacio. Vive la velocidad con los simuladores de conducción, despega en el simulador de vuelo y descubre nuevos mundos con la realidad virtual. Disfruta de las máquinas arcade, la Nintendo Switch y la PlayStation 5, o pon a prueba tu ritmo en las plataformas de baile. Además, incorporamos actividades deportivas como minigolf, bádminton, voleibol o hockey, creando una propuesta innovadora donde lo digital y lo físico se unen.",
+	},
+	{
+		name: "Valencia",
+		img: "Poster_de_Gaming_X_Deport_40.webp",
+		date: "31-05-2025",
+		description:
+			"Una experiencia única con competiciones de videojuegos y actividades deportivas.",
+	},
+	{
+		name: "CASTELLON",
+		img: "Poster de Gaming X Deport 39.webp",
+		date: "05-04-2025",
+		description:
+			"Una experiencia única con competiciones de videojuegos y actividades deportivas.",
+	},
+	{
+		name: "EDIFICI POLIFUNCIONAL GUILLEM AGULLO",
+		img: "Poster de Gaming X Deport 36.webp",
+		date: "04-01-2025",
+		description:
+			"Un evento de gaming y deporte en un espacio moderno y multifuncional.",
+	},
+	{
+		name: "ESPAI JOVE CHIVA",
+		img: "Poster de Gaming X Deport 34.webp",
+		date: "02-01-2025",
+		description:
+			"Jornada interactiva para jóvenes con torneos de videojuegos y actividades deportivas.",
+	},
+	{
+		name: "PLAZA DE AMISTAT",
+		img: "Poster de Gaming X Deport 33.webp",
+		date: "30-12-2024",
+		description:
+			"Competencias de eSports al aire libre con zonas de entretenimiento y desafíos deportivos.",
+	},
+	{
+		name: "PUZOL",
+		img: "Poster de Gaming X Deport 32.webp",
+		date: "30-12-2024",
+		description:
+			"Encuentro de gaming con estaciones de juego y torneos en un ambiente dinámico.",
+	},
+	{
+		name: "MERCADO DE CASAS IBAÑEZ",
+		img: "Poster de Gaming X Deport 31.webp",
+		date: "29-12-2024",
+		description:
+			"Evento que fusiona el mundo gamer con actividades físicas en un entorno único.",
+	},
+	{
+		name: "EDIFICI POLIFUNCIONAL ALCORA",
+		img: "Poster de Gaming X Deport 30.webp",
+		date: "28-12-2024",
+		description:
+			"Diversión asegurada con competiciones de videojuegos y retos físicos para todos.",
+	},
+	{
+		name: "SALON POLIVALENTE DE SANIRCAS",
+		img: "Poster de Gaming X Deport 37.webp",
+		date: "27-12-2024",
+		description:
+			"Torneos de gaming y actividades deportivas en un ambiente acogedor y dinámico.",
+	},
+	{
+		name: "MUSEROS",
+		img: "Poster de Gaming X Deport 26.webp",
+		date: "27-12-2024",
+		description:
+			"Espacio de diversión con juegos competitivos y actividades recreativas.",
+	},
+	{
+		name: "CEIP STA M.MAGDALENA",
+		img: "Poster de Gaming X Deport 28.webp",
+		date: "23-12-2024",
+		description:
+			"Un día lleno de videojuegos y actividades físicas para todas las edades.",
+	},
+	{
+		name: "CAMPOS DE RIO",
+		img: "Poster de Gaming X Deport 35.webp",
+		date: "20-12-2024",
+		description:
+			"Competencias de videojuegos y deportes en un entorno natural y vibrante.",
+	},
+	{
+		name: "CASAL IBAÑEZ",
+		img: "Poster de Gaming X Deport 24.webp",
+		date: "27-04-2024",
+		description:
+			"Evento recreativo con torneos de gaming y experiencias deportivas.",
+	},
+	{
+		name: "AYUNTAMIENTO DE PUZOL",
+		img: "Poster de Gaming X Deport 19.webp",
+		date: "03-01-2024",
+		description:
+			"Torneo de videojuegos y pruebas deportivas en un espacio emblemático.",
+	},
+	{
+		name: "AYUNTAMIENTO SANT JOAN DE MORO",
+		img: "Poster de Gaming X Deport 22.webp",
+		date: "02-01-2024",
+		description:
+			"Evento que combina videojuegos y deportes en una experiencia única.",
+	},
+	{
+		name: "AYUNTAMIENTO DE TALES",
+		img: "Poster de Gaming X Deport 15.webp",
+		date: "29-12-2023",
+		description:
+			"Un día repleto de gaming competitivo y actividades deportivas para todos.",
+	},
+	{
+		name: "TEULADA",
+		img: "Poster de Gaming X Deport 14.webp",
+		date: "27-12-2023 / 28-12-2023",
+		description:
+			"Doble jornada con torneos de eSports y pruebas físicas emocionantes.",
+	},
+	{
+		name: "MELIANA",
+		img: "Poster de Gaming X Deport 29.webp",
+		date: "26-12-2023",
+		description:
+			"Espacio de entretenimiento con consolas de última generación y retos deportivos.",
+	},
+	{
+		name: "CEIP LOPE VEGA",
+		img: "Poster de Gaming X Deport 13.webp",
+		date: "28-10-2023",
+		description:
+			"Competencias de videojuegos y actividades recreativas para todos los públicos.",
+	},
+	{
+		name: "UNIVERSIDAD MIGUEL HERNANDEZ 1",
+		img: "Poster de Gaming X Deport 12.webp",
+		date: "06-11-2023",
+		description:
+			"Evento universitario con torneos de gaming y dinámicas deportivas innovadoras.",
+	},
+	{
+		name: "UNIVERSIDAD MIGUEL HERNANDEZ 2",
+		img: "Poster de Gaming X Deport 11.webp",
+		date: "16-10-2023",
+		description:
+			"Competencias estudiantiles de videojuegos y pruebas físicas en equipo.",
+	},
+	{
+		name: "ALQUERIES",
+		img: "Poster de Gaming X Deport 9.webp",
+		date: "04-10-2023",
+		description:
+			"Jornada recreativa con competiciones de gaming y actividades deportivas.",
+	},
+	{
+		name: "CALLE JAI ALAI",
+		img: "Poster de Gaming X Deport 8.webp",
+		date: "11-08-2023",
+		description:
+			"Torneos de videojuegos en un ambiente urbano con desafíos deportivos.",
+	},
+	{
+		name: "CASAL JOVE ALBALX",
+		img: "Poster de Gaming X Deport 7.webp",
+		date: "15-07-2023",
+		description:
+			"Día de diversión con juegos, retos deportivos y premios para los ganadores.",
+	},
+	{
+		name: "PLAZA TIRANT GANDIA",
+		img: "Poster de Gaming X Deport 6.webp",
+		date: "22-04-2023",
+		description:
+			"Evento al aire libre con estaciones de juego y actividades deportivas.",
+	},
+	{
+		name: "FALLA NOVA DORRIOLS",
+		img: "Poster de Gaming X Deport 4.webp",
+		date: "15-03-2023",
+		description:
+			"Fiesta fallera con videojuegos, pruebas físicas y premios para los participantes.",
+	},
+	{
+		name: "FALLA PLAZA LA MORERIA",
+		img: "Poster de Gaming X Deport 2.webp",
+		date: "12-03-2023",
+		description:
+			"Evento fallero con torneos de gaming y actividades deportivas tradicionales.",
+	},
+	{
+		name: "UNIVERSIDAD CATOLICA DE VALENCIA",
+		img: "Poster de Gaming X Deport 5.webp",
+		date: "09-03-2023",
+		description:
+			"Competencias de videojuegos y desafíos físicos en un entorno académico.",
+	},
 ];
-
-console.log(events);
 ---

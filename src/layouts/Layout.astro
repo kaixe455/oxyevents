@@ -4,7 +4,7 @@ import Footer from "@components/Footer.astro";
 import { SEO } from "astro-seo";
 
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
@@ -12,100 +12,106 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="../../public/svgs/logo/o2glogo.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <!-- No quitar lo de abajo -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <SEO
-      title={title}
-      description="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
-      openGraph={{
-        basic: {
-          title: "Oxygen Gaming - Organización de eventos y ferias",
-          type: "Landing page",
-          image:
-            "https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
-        },
-      }}
-      twitter={{
-        creator: "@angelangulo95",
-      }}
-      extend={{
-        meta: [
-          {
-            name: "twitter:image",
-            content:
-              "https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
-          },
-          {
-            name: "twitter:title",
-            content: "Oxygen Gaming - Organización de eventos y ferias",
-          },
-          {
-            name: "twitter:description",
-            content:
-              "Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes.",
-          },
-        ],
-      }}
-    />
-  </head>
-  <body class="bg-[#1AA9FF] overflow-x-hidden">
-    <Header />
-    <slot />
-    <Footer />
-    <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
-    <style is:global>
-      @font-face {
-        font-family: "Syne-Regular";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/fonts/Syne-Regular.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Syne-Bold";
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("/fonts/Syne-Bold.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "Syne-Medium";
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("/fonts/Syne-Medium.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "GeneralSans-Regular";
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url("/fonts/GeneralSans-Regular.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "GeneralSans-Bold";
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url("/fonts/GeneralSans-Bold.woff2") format("woff2");
-      }
-      @font-face {
-        font-family: "GeneralSans-Medium";
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url("/fonts/GeneralSans-Medium.woff2") format("woff2");
-      }
-    </style>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="../../svgs/logo/o2glogo.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<!-- No quitar lo de abajo -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+			integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<SEO
+			title={title}
+			description="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
+			openGraph={{
+				basic: {
+					title: "Oxygen Gaming - Organización de eventos y ferias",
+					type: "Landing page",
+					image:
+						"https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
+				},
+			}}
+			twitter={{
+				creator: "@angelangulo95",
+			}}
+			extend={{
+				meta: [
+					{
+						name: "twitter:image",
+						content:
+							"https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
+					},
+					{
+						name: "twitter:title",
+						content: "Oxygen Gaming - Organización de eventos y ferias",
+					},
+					{
+						name: "twitter:description",
+						content:
+							"Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes.",
+					},
+				],
+			}}
+		/>
+	</head>
+	<body class="bg-[#1AA9FF] overflow-x-hidden">
+		<Header />
+		<slot />
+		<Footer />
+		<script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
+		<style is:global>
+			@font-face {
+				font-family: "Syne-Regular";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("/fonts/Syne-Regular.woff2") format("woff2");
+			}
+			@font-face {
+				font-family: "Syne-Bold";
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url("/fonts/Syne-Bold.woff2") format("woff2");
+			}
+			@font-face {
+				font-family: "Syne-Medium";
+				font-style: normal;
+				font-weight: 500;
+				font-display: swap;
+				src: url("/fonts/Syne-Medium.woff2") format("woff2");
+			}
+			@font-face {
+				font-family: "GeneralSans-Regular";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("/fonts/GeneralSans-Regular.woff2") format("woff2");
+			}
+			@font-face {
+				font-family: "GeneralSans-Bold";
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url("/fonts/GeneralSans-Bold.woff2") format("woff2");
+			}
+			@font-face {
+				font-family: "GeneralSans-Medium";
+				font-style: normal;
+				font-weight: 500;
+				font-display: swap;
+				src: url("/fonts/GeneralSans-Medium.woff2") format("woff2");
+			}
+		</style>
+	</body>
 </html>

@@ -1,172 +1,103 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import EventCardEnlace from "@components/cards/EventCardEnlace.astro";
+import EventCardEnlace from "@components/cards/EventCardLinked.astro";
 import { events } from "@components/EventsList.astro";
+import { parseDate } from "@utils/dates";
+import ReturnButton from "@buttons/ReturnButton.astro";
+import TicketingForm from "@forms/TicketingForm.astro";
+import EventImgModal from "@modals/EventImgModal.astro";
 
 const { name } = Astro.params;
-const item = events.find(i => i.name === name);
-const imagesAlbal = ["event1.webp", "event2.webp"];
-
-// Función para convertir la fecha del evento a objeto Date
-const parseDate = (str) => {
-  if (!str) return null;
-  const datePart = str.split(" / ")[0];
-  const [day, month, year] = datePart.split("-").map(Number);
-  return new Date(year, month - 1, day);
-};
+const item = events.find((i) => i.name === name);
 
 const eventDate = parseDate(item?.date);
 const isFuture = eventDate && eventDate > new Date();
 ---
 
 <Layout title={item ? item.name : "No encontrado"}>
-  <main class="text-white relative my-16">
-    <div class="gap-[50px] lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] p-8">
+	<main class="text-white relative my-16">
+		<div
+			class="gap-[50px] lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] p-8"
+		>
+			<!-- Tarjeta clickeable -->
+			<div id="tarjeta_activar" class="cursor-pointer">
+				<EventCardEnlace name={item.name} img={item.img} date={item.date} />
+			</div>
 
-      <!-- Tarjeta clickeable -->
-      <div id="tarjeta_activar" class="cursor-pointer">
-        <EventCardEnlace name={item.name} img={item.img} images={imagesAlbal} date={item.date} />
-      </div>
+			<!-- Info y botones -->
+			<div
+				class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2"
+			>
+				<h3 class="font-bold text-[25px]">
+					<i class="fa-solid fa-location-dot"></i>
+					{item.name}
+				</h3>
+				<span class="font-bold text-[20px] italic"
+					><i class="fa-solid fa-calendar-days"></i> {item.date}</span
+				>
+				<span class="lg:w-[80%]">{item.description}</span>
 
-      <!-- Info y botones -->
-      <div class="flex flex-col justify-center text-white text-justify text-[18px] w-full md:w-1/2">
-        <h3 class="font-bold text-[25px]"><i class="fa-solid fa-location-dot"></i> {item.name}</h3>
-        <span class="font-bold text-[20px] italic"><i class="fa-solid fa-calendar-days"></i> {item.date}</span>
-        <span class="lg:w-[80%]">{item.description}</span>
+				<div class="flex gap-1">
+					<ReturnButton />
+					{
+						isFuture && (
+							<div class="w-[16rem] flex flex-col items-center justify-center mt-[30px]">
+								<button
+									id="mostrar_formulario"
+									class="relative z-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+								>
+									Obtén tu entrada
+								</button>
+							</div>
+						)
+					}
+				</div>
 
-        <div class="flex gap-1">
-          <a href="/eventos" class="w-[8.5rem] flex flex-col items-center justify-center mt-[30px]">
-            <button class="relative z-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-              Volver
-            </button>
-          </a>
+				{isFuture && <TicketingForm />}
+			</div>
+		</div>
 
-          {isFuture && (
-            <div class="w-[16rem] flex flex-col items-center justify-center mt-[30px]">
-              <button id="mostrar_formulario" class="relative z-10 inline-flex items-center px-10 py-2 text-lg font-bold text-blue-500 bg-white rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                Obtén tu entrada
-              </button>
-            </div>
-          )}
-        </div>
+		<!-- MODAL -->
+		<EventImgModal item={item} />
+	</main>
 
-        {isFuture && (
-          <div id="formulario_entradas" class="hidden mt-6 bg-white text-black rounded-xl p-6 w-full shadow-xl">
-            <form class="flex flex-col gap-6" onsubmit="event.preventDefault(); alert('Compra simulada');">
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="nombre" class="font-semibold">Nombre completo</label>
-                  <input id="nombre" name="nombre" type="text" required minlength="3" maxlength="50"
-                         placeholder="Ej. Laura Martínez"
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]" />
-                </div>
-                <div>
-                  <label class="font-semibold">DNI</label>
-                  <div class="flex gap-2">
-                    <input type="number" name="dni_num" inputmode="numeric" required maxlength="8" minlength="8"
-                           placeholder="12345678"
-                           class="w-3/4 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF] no-spinner" />
-                    <input type="text" name="dni_letra" pattern="[A-Za-z]{1}" required maxlength="1" minlength="1"
-                           placeholder="A"
-                           class="w-1/4 px-4 py-2 text-center uppercase rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]" />
-                  </div>
-                </div>
-              </div>
+	<!-- Scripts -->
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const tarjeta = document.getElementById("tarjeta_activar");
+			const modal = document.getElementById("imagen_zoom");
+			const botonFormulario = document.getElementById("mostrar_formulario");
+			const contenedorFormulario = document.getElementById(
+				"formulario_entradas"
+			);
 
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="email" class="font-semibold">Correo electrónico</label>
-                  <input id="email" name="email" type="email" required
-                         placeholder="email@ejemplo.com"
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]" />
-                </div>
-                <div>
-                  <label for="telefono" class="font-semibold">Teléfono</label>
-                  <input id="telefono" name="telefono" type="tel" required inputmode="tel"
-                         pattern="^[+]?[\d\s]{9,15}$"
-                         placeholder="+34 600 123 456"
-                         class="no-spinner w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]" />
-                </div>
-              </div>
+			tarjeta?.addEventListener("click", () => {
+				modal?.classList.remove("hidden");
+			});
 
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="tipo" class="font-semibold">Tipo de entrada</label>
-                  <select id="tipo" name="tipo" required
-                          class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]">
-                    <option value="">Selecciona una opción</option>
-                    <option value="general">General</option>
-                    <option value="vip">VIP</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="cantidad" class="font-semibold">Cantidad</label>
-                  <input id="cantidad" name="cantidad" type="number" min="1" max="10" value="1" required
-                         class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1AA9FF]" />
-                </div>
-              </div>
+			botonFormulario?.addEventListener("click", () => {
+				contenedorFormulario?.classList.toggle("hidden");
+				if (botonFormulario && contenedorFormulario) {
+					botonFormulario.textContent = contenedorFormulario.classList.contains(
+						"hidden"
+					)
+						? "Obtén tu entrada"
+						: "Ocultar";
+				}
+			});
+		});
+	</script>
 
-              <div class="flex justify-center">
-                <button type="submit"
-                        class="bg-[#1AA9FF] text-white font-bold px-10 py-3 rounded-xl text-lg shadow-lg transition-transform hover:scale-105 hover:shadow-xl">
-                  Obtén tu entrada
-                </button>
-              </div>
-            </form>
-          </div>
-        )}
-      </div>
-    </div>
-
-    <!-- MODAL -->
-    <div id="imagen_zoom" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex justify-center items-center">
-      <div class="relative">
-        <button id="cerrar_modal" class="absolute top-[-20px] right-[-20px] bg-white text-blue-500 font-bold rounded-full w-[40px] h-[40px] flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
-          ✕
-        </button>
-        <img class="w-[40vh] min-[568px]:w-[65vh] border-[4px] rounded-xl shadow-2xl" src={`/events/${item.img}`} alt="Imagen centrada" />
-      </div>
-    </div>
-  </main>
-
-  <!-- Scripts -->
-  <script is:client>
-    const tarjeta = document.getElementById('tarjeta_activar');
-    const modal = document.getElementById('imagen_zoom');
-    const cerrar = document.getElementById('cerrar_modal');
-    const botonFormulario = document.getElementById('mostrar_formulario');
-    const contenedorFormulario = document.getElementById('formulario_entradas');
-
-    tarjeta.addEventListener('click', () => {
-      modal.classList.remove('hidden');
-    });
-
-    cerrar.addEventListener('click', (e) => {
-      e.stopPropagation();
-      modal.classList.add('hidden');
-    });
-
-    botonFormulario?.addEventListener('click', () => {
-      contenedorFormulario.classList.toggle('hidden');
-      botonFormulario.textContent = contenedorFormulario.classList.contains('hidden')
-        ? 'Obtén tu entrada'
-        : 'Ocultar';
-    });
-  </script>
-
-  <!-- Estilos adicionales -->
-  <style>
-    input.no-spinner::-webkit-outer-spin-button,
-    input.no-spinner::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    input.no-spinner[type=number],
-    input.no-spinner[type=tel] {
-      -moz-appearance: textfield;
-    }
-  </style>
+	<!-- Estilos adicionales -->
+	<style>
+		input.no-spinner::-webkit-outer-spin-button,
+		input.no-spinner::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		input.no-spinner[type="number"],
+		input.no-spinner[type="tel"] {
+			-moz-appearance: textfield;
+		}
+	</style>
 </Layout>
-
-
-
