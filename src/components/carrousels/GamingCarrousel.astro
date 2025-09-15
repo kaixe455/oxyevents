@@ -1,15 +1,20 @@
 ---
 import GamingCard from "@components/cards/GamingCard.astro";
-import {items} from "@components/CatalogoList.astro";
+import { catalog } from "@components/CatalogoList.astro";
+import { filterByCategory } from "@utils/sort.js";
 
-const gaming_items = items.slice(0,10)
-
+const gaming_items = filterByCategory(catalog, "gaming");
 ---
 
-<div id="gaming" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-[60px]">
-  {gaming_items.map((item) => (
-    <div class="col-span-1">
-      <GamingCard text={item.text} img={item.img} />
-    </div>
-  ))}
+<div
+	id="gaming"
+	class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-[60px]"
+>
+	{
+		gaming_items.map((item) => (
+			<div class="col-span-1">
+				<GamingCard text={item.text} img={item.img} />
+			</div>
+		))
+	}
 </div>

@@ -1,15 +1,19 @@
 ---
 import SportCard from "@components/cards/SportCard.astro";
-import {items} from "@components/CatalogoList.astro";
+import { catalog } from "@components/CatalogoList.astro";
+import { filterByCategory } from "@utils/sort.js";
 
-const sports_items = items.slice(10)
-
+const sports_items = filterByCategory(catalog, "sports");
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-[60px]">
-  {sports_items.map((item) => (
-    <div class="col-span-1">
-      <SportCard text={item.text} img={item.img} />
-    </div>
-  ))}
+<div
+	class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-[60px]"
+>
+	{
+		sports_items.map((item) => (
+			<div class="col-span-1">
+				<SportCard text={item.text} img={item.img} />
+			</div>
+		))
+	}
 </div>
