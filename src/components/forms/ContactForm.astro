@@ -15,145 +15,173 @@ partnerKey.apiKey = API_KEY;
 var tranEmailApi = new Brevo.TransactionalEmailsApi();
 
 if (Astro.request.method === "POST") {
-  try {
-    // Getting posted data from our contact form
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const message = data.get("message");
+	try {
+		// Getting posted data from our contact form
+		const data = await Astro.request.formData();
+		const name = data.get("name");
+		const email = data.get("email");
+		const message = data.get("message");
 
-    // TODO: Do not forget to do validation and error handling over received data from your contact form.
-    const subject = "Contacto formulario Oxygen Eventos";
-    // Sending email
-    let msg = "<p>Nombre: " + name + "</p>";
-    msg += "<p>Email: " + email + "</p>";
-    msg += "<p>Mensaje: " + message + "</p>";
-    const sender = {
-      email: "info@oxygengaming.es",
-      name: "Oxygen Eventos",
-    };
-    const receivers = [
-      {
-        email: "info@oxygengaming.es",
-      },
-    ];
-    await tranEmailApi
-      .sendTransacEmail({
-        sender,
-        to: receivers,
-        subject: subject,
-        htmlContent: msg,
-      })
-      .then(function () {
-        submitted = true;
-      })
-      .catch(console.log);
-  } catch (err) {
-    console.log(err);
-  }
+		// TODO: Do not forget to do validation and error handling over received data from your contact form.
+		const subject = "Contacto formulario Oxygen Eventos";
+		// Sending email
+		let msg = "<p>Nombre: " + name + "</p>";
+		msg += "<p>Email: " + email + "</p>";
+		msg += "<p>Mensaje: " + message + "</p>";
+		const sender = {
+			email: "info@oxygengaming.es",
+			name: "Oxygen Eventos",
+		};
+		const receivers = [
+			{
+				email: "info@oxygengaming.es",
+			},
+		];
+		await tranEmailApi
+			.sendTransacEmail({
+				sender,
+				to: receivers,
+				subject: subject,
+				htmlContent: msg,
+			})
+			.then(function () {
+				submitted = true;
+			})
+			.catch(console.log);
+	} catch (err) {
+		console.log(err);
+	}
 }
 ---
 
-<section class="bg-[#f3f4f6] rounded-xl p-6 dark:bg-gray-900 w-full md:w-[90%]   mx-auto lg:w-[65vh] shadow-[0_4px_6px_rgba(0,0,0,0.1)]">
-  
-  <div class="py-8 px-4 mx-auto max-w-screen-md">
-    {submitted && (
-      <div
-        id="toast-success"
-        class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-        role="alert"
-      >
-        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-          </svg>
-          <span class="sr-only">Check icon</span>
-        </div>
-        <div class="ml-3 text-sm font-normal">
-          Formulario enviado correctamente
-        </div>
-        <button
-          type="button"
-          class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-          data-dismiss-target="#toast-success"
-          aria-label="Close"
-        >
-          <span class="sr-only">Close</span>
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-            />
-          </svg>
-        </button>
-      </div>
-    )}
+<section
+	class="bg-[#f3f4f6] rounded-xl p-6 dark:bg-gray-900 w-full md:w-[90%] mx-auto lg:w-[65vh] shadow-[0_4px_6px_rgba(0,0,0,0.1)]"
+>
+	<div class="py-8 px-4 mx-auto max-w-screen-md">
+		{
+			submitted && (
+				<div
+					id="toast-success"
+					class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+					role="alert"
+				>
+					<div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+						<svg
+							class="w-5 h-5"
+							aria-hidden="true"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+						>
+							<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+						</svg>
+						<span class="sr-only">Check icon</span>
+					</div>
+					<div class="ml-3 text-sm font-normal">
+						Formulario enviado correctamente
+					</div>
+					<button
+						type="button"
+						class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+						data-dismiss-target="#toast-success"
+						aria-label="Close"
+					>
+						<span class="sr-only">Close</span>
+						<svg
+							class="w-3 h-3"
+							aria-hidden="true"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 14 14"
+						>
+							<path
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+							/>
+						</svg>
+					</button>
+				</div>
+			)
+		}
 
-    
+		<form method="POST" class="flex flex-col gap-4">
+			<div class="flex flex-col gap-4">
+				<div class="w-full">
+					<label
+						for="name"
+						class="block mb-2 font-bold text-black text-[15px] dark:text-gray-300"
+						>Tu nombre</label
+					>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+						placeholder="Introduzca su nombre"
+						required
+					/>
+				</div>
 
-
-
-
-    <form method="POST" class="flex flex-col gap-4">
-      <div class="flex flex-col gap-4">
-        <div class="w-full">
-          <label for="name" class="block mb-2 font-bold text-black text-[15px] dark:text-gray-300">Tu nombre</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="resize-none block p-2.5 w-full  text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-            placeholder="Introduzca su nombre"
-            required
-          />
-        </div>
-        
-        
-        <div class="w-full">
-          <label for="email" class="block mb-2 font-bold text-black dark:text-gray-300 text-[15px] ">Tu correo electrónico</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="resize-none block p-2.5 w-full  text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 "
-            placeholder="info@oxygengaming.es"
-            required
-          />
-        </div>
-        
-      </div>
-      <div class="sm:col-span-2">
-        <label for="message" class="block mb-2 font-bold text-black dark:text-gray-400 text-[15px]">Tu mensaje (opcional)</label>
-        <textarea
-          id="message"
-          rows="6"
-          name="message"
-          class="resize-none block p-2.5 w-full  text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-          placeholder="¿En que podemos ayudarte?"></textarea>
-      </div>
-      <div class="sm:col-span-2">
-        <div class="checker" id="uniform-customer_privacy">
-          <input
-            type="checkbox"
-            value="0"
-            required
-            name="customer_privacy"
-            autocomplete="off"
-          />
-          <label for="newsletter-input" class="ml-3">
-            <span class="text-black font-bold text-[15px]"> Acepto que los datos personales se utilizarán para mejorar tu experiencia en esta web y otros propósitos descritos en nuestra <a class="text-[#1AA9FF]" href="https://oxygengaming.es/politica-de-privacidad/">política de privacidad</a></span>
-          </label>
-        </div>
-      </div>
-      <button
-        type="submit"
-        class="py-[10px] sm:px-[100px]  md:py-[15px] md:px-[20vh] text-sm font-medium text-center text-white rounded-lg bg-[#1AA9FF] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
-      >
-        Enviar
-      </button>
-    </form>
-  </div>
+				<div class="w-full">
+					<label
+						for="email"
+						class="block mb-2 font-bold text-black dark:text-gray-300 text-[15px]"
+						>Tu correo electrónico</label
+					>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+						placeholder="info@oxygengaming.es"
+						required
+					/>
+				</div>
+			</div>
+			<div class="sm:col-span-2">
+				<label
+					for="message"
+					class="block mb-2 font-bold text-black dark:text-gray-400 text-[15px]"
+					>Tu mensaje (opcional)</label
+				>
+				<textarea
+					id="message"
+					rows="6"
+					name="message"
+					class="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+					placeholder="¿En que podemos ayudarte?"></textarea>
+			</div>
+			<div class="sm:col-span-2">
+				<div class="checker" id="uniform-customer_privacy">
+					<input
+						type="checkbox"
+						id="customer_privacy"
+						value="1"
+						required
+						name="customer_privacy"
+						autocomplete="off"
+					/>
+					<label for="customer_privacy" class="ml-3">
+						<span class="text-black font-bold text-[15px]">
+							Acepto que los datos personales se utilizarán para mejorar tu
+							experiencia en esta web y otros propósitos descritos en nuestra <a
+								class="text-[#1AA9FF]"
+								href="https://oxygengaming.es/politica-de-privacidad/"
+								>política de privacidad</a
+							></span
+						>
+					</label>
+				</div>
+			</div>
+			<button
+				type="submit"
+				class="py-[10px] sm:px-[100px] md:py-[15px] md:px-[20vh] text-sm font-medium text-center text-white rounded-lg bg-[#1AA9FF] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+			>
+				Enviar
+			</button>
+		</form>
+	</div>
 </section>
