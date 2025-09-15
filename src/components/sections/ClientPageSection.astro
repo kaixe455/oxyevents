@@ -1,0 +1,25 @@
+---
+import SponsorsCarrousel from "@components/carrousels/SponsorsCarrousel.astro";
+import ClientStaticCarrousel from "@components/carrousels/ClientStaticCarrousel.astro";
+import OpinionesCarrousel from "@components/carrousels/OpinionesCarrousel.astro";
+---
+
+<section class="bg-white" id="clients">
+	<div class="grid grid-cols-1 items-center justify-center mt-5">
+		<div class="col-span-1">
+			<ClientStaticCarrousel />
+		</div>
+	</div>
+	<div class="bg-[#1AA9FF] w-full mt-[20px] mb-[60px]">
+		<h2 class="font-syne-bold text-3xl text-center pt-[30px]">Opiniones</h2>
+		<OpinionesCarrousel />
+	</div>
+	<h2 class="font-syne-bold text-3xl text-mainblue text-center mt-3">
+		COLABORADORES
+	</h2>
+	<div class="grid grid-cols-1 items-center justify-center mt-5">
+		<div class="col-span-1">
+			<SponsorsCarrousel />
+		</div>
+	</div>
+</section>
