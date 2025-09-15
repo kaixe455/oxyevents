@@ -1,0 +1,29 @@
+---
+import OpinionCard from "@components/cards/OpinionCard.astro";
+import { opinions } from "@components/OpinionesList.astro";
+---
+
+<div class="resenas-container">
+	{
+		opinions.map((resena) => {
+			return (
+				<OpinionCard
+					logo_ayuntamiento={resena.logo_ayuntamiento}
+					texto={resena.texto}
+					autor={resena.autor}
+				/>
+			);
+		})
+	}
+</div>
+
+<style>
+	.resenas-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 24px;
+		padding: 2rem 1rem;
+		justify-items: center;
+		font-family: "Poppins", sans-serif;
+	}
+</style>

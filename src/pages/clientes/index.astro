@@ -1,21 +1,19 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/Container.astro";
-import ClientsSection from "@components/sections/ClientsSection.astro";
-import SponsorSection from "@components/sections/SponsorSection.astro";
+import ClientPageSection from "@components/sections/ClientPageSection.astro";
 import Section from "@components/Section.astro";
-
-
 ---
 
 <Layout title="Oxygen Gaming Eventos - Nuestros clientes">
-  <main class="text-[white]">
-    <section class="mt-[30px] md:mt-[0px]">
-      <div class="w-full flex flex-col items-center justify-center xl:h-[20vh] sm:h-[80vh] md:h-[50vh] h-[50vh] ">
-        <Section title="Nuestros Clientes" />
-      </div>
-    </section>
-      
-      <SponsorSection />
-  </main>
+	<main class="text-[white]">
+		<section class="mt-[30px] md:mt-[0px]">
+			<div
+				class="w-full flex flex-col items-center justify-center xl:h-[20vh] sm:h-[80vh] md:h-[50vh] h-[50vh]"
+			>
+				<Section title="Nuestros Clientes" />
+			</div>
+		</section>
+
+		<ClientPageSection />
+	</main>
 </Layout>

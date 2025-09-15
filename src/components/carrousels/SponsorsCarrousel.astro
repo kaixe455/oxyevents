@@ -1,25 +1,15 @@
 ---
 import SponsorCard from "@components/cards/SponsorCard.astro";
 
-const sponsors = [
-  
-  { name: "Play Seat", img: "playseat_Black" },
-  { name: "Red Bull", img: "Red_Bull_Black" },
-  { name: "Thrustmaster", img: "Thrustmaster_Black" },
-  { name: "Atribus", img: "atribus" },
-  { name: "Acer", img:"Acer_Black"},
-  { name: "Emix", img:"Emix_Black"},
-  { name: "Icaros", img:"Icaros_Black"},
-  { name: "Audeze", img:"Audeze_Black"}
-
-
-];
+import { sponsors } from "@components/SponsorsList.astro";
 ---
 
 <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-  {sponsors.map((sponsor) => (
-    <div class="col-span-1 p-4">
-      <SponsorCard name={sponsor.name} img={sponsor.img} />
-    </div>
-  ))}
+	{
+		sponsors.map((sponsor) => (
+			<div class="col-span-1 p-4">
+				<SponsorCard name={sponsor.name} img={sponsor.img} />
+			</div>
+		))
+	}
 </div>

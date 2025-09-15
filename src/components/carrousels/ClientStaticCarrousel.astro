@@ -1,0 +1,59 @@
+---
+import OxygenButton from "@components/buttons/OxygenButton.astro";
+import ClientCard from "@components/cards/ClientCard.astro";
+import { clients } from "@components/ClientsList.astro";
+import { reverseArray } from "@utils/sort.js";
+
+const clientsByDataAdded = reverseArray(clients);
+
+const firstClients = clientsByDataAdded.slice(0, 12);
+const restClients = clientsByDataAdded.slice(12);
+---
+
+<div
+	id="client-grid"
+	class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4"
+>
+	{
+		firstClients.map((client) => (
+			<div class="col-span-1 p-4">
+				<ClientCard name={client.name} img={client.img} />
+			</div>
+		))
+	}
+</div>
+
+<!-- Este div debe estar oculto por defecto -->
+<div
+	id="extra-clients"
+	class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4"
+>
+	{
+		restClients.map((client) => (
+			<div class="col-span-1 p-4">
+				<ClientCard name={client.name} img={client.img} />
+			</div>
+		))
+	}
+</div>
+
+<div class="flex justify-center mt-4 mb-[50px]">
+	<OxygenButton text="Mostrar más" id="toggle-button" />
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const extraClients = document.getElementById("extra-clients");
+		const button = document.getElementById("toggle-button");
+		let showAll = false;
+
+		// Asegurar que los clientes adicionales estén ocultos al cargar la página
+		extraClients.classList.add("hidden");
+
+		button.addEventListener("click", () => {
+			showAll = !showAll;
+			extraClients.classList.toggle("hidden");
+			button.textContent = showAll ? "Mostrar menos" : "Mostrar más";
+		});
+	});
+</script>
