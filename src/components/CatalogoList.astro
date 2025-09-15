@@ -1,20 +1,123 @@
 ---
-export const items = [
-  { text: "Simulador de Conducción", img: "SIMULADOR_DE_CONDUCCION_HORIZONTAL", categoria: "gaming", descripcion: "Vive la experiencia de manejar un coche de carreras con realismo extremo. Volante, pedales y gráficos envolventes te harán sentir en la pista." },
-  { text: "Nintendo Switch", img: "NINTENDO_SWITCH_HORIZONTAL", categoria: "gaming", descripcion: "La consola híbrida de Nintendo que te permite jugar en casa o en cualquier lugar con una gran variedad de juegos exclusivos." },
-  { text: "Realidad Virtual", img: "VR_HORIZONTAL", categoria: "gaming", descripcion: "Sumérgete en mundos digitales con experiencias interactivas que te harán sentir dentro del juego." },
-  { text: "Simulador de Vuelo", img: "ICAROS_HORIZONTAL", categoria: "gaming", descripcion: "Dispositivo de entrenamiento en realidad virtual que combina ejercicio físico con una experiencia inmersiva única." },
-  { text: "Dancing Pads", img: "DANCING_PADS_HORIZONTAL", categoria: "gaming", descripcion: "Diviértete y haz ejercicio al ritmo de la música con estas alfombrillas interactivas. ¡Sigue los pasos y mejora tu coordinación!" },
-  { text: "PlayStation", img: "PLAYSTATION_HORIZONTAL", categoria: "gaming", descripcion: "Una de las consolas más populares con títulos exclusivos, gráficos de alta calidad y una experiencia de juego envolvente." },
-  { text: "Ring Fit Adventure", img: "RING_FIT_HORIZONTAL", categoria: "gaming", descripcion: "Videojuego interactivo que combina fitness y aventura. Usa un aro de resistencia para realizar ejercicios mientras avanzas en el juego." },
-  { text: "BeFootball", img: "BE_FOTBALL", categoria: "gaming", descripcion: "Simulador de fútbol inmersivo que combina realidad virtual y movimiento físico para entrenar y jugar como un profesional." },
-  { text: "Pádel VR", img: "PADEL_VR",categoria: "gaming", descripcion: "Experiencia de pádel en realidad virtual que te permite entrenar competir y mejorar tus reflejos desde cualquier lugar." },
-  {text: "Máquina Arcade Clásica", img: "Maquina_Arcade", categoria: "gaming", descripcion: "Recreativa retro con una colección de juegos clásicos, perfecta para revivir la nostalgia de los salones arcade." },
-  { text: "Balonmano", img: "BALONMANO_HORIZONTAL", categoria: "sports", descripcion: "Deporte de equipo dinámico donde los jugadores deben marcar goles lanzando el balón con la mano. Requiere velocidad, fuerza y estrategia." },
-  {text: "Fútbol Sala", img: "FUTBOL_SALA_HORIZONTAL", categoria: "sports", descripcion: "Variante del fútbol tradicional que se juega en una cancha más pequeña, con reglas adaptadas para un ritmo más rápido y técnico." },
-  { text: "Hockey", img: "HOCKEY_HORIZONTAL", categoria: "sports", descripcion: "Juego de equipo donde los jugadores usan un palo para golpear un disco o una bola y marcar en la portería contraria. Se juega en diferentes superficies como hielo o césped." },
-  { text: "Minigolf", img: "MINIGOLF_HORIZONTAL", categoria: "sports", descripcion: "Versión compacta y divertida del golf tradicional, con obstáculos creativos y desafíos en cada hoyo. Ideal para todas las edades." },
-  { text: "Voleibol", img: "VOLLEYBALL_HORIZONTAL", categoria: "sports", descripcion: "Deporte de equipo en el que dos conjuntos se enfrentan tratando de pasar el balón por encima de la red sin que toque el suelo en su campo." }
-]
-console.log(items);
+export const catalog = [
+	{
+		text: "Simulador de Conducción",
+		img: "SIMULADOR_DE_CONDUCCION_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Vive la experiencia de manejar un coche de carreras con realismo extremo. Volante, pedales y gráficos envolventes te harán sentir en la pista.",
+	},
+	{
+		text: "Nintendo Switch",
+		img: "NINTENDO_SWITCH_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"La consola híbrida de Nintendo que te permite jugar en casa o en cualquier lugar con una gran variedad de juegos exclusivos.",
+	},
+	{
+		text: "Realidad Virtual",
+		img: "VR_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Sumérgete en mundos digitales con experiencias interactivas que te harán sentir dentro del juego.",
+	},
+	{
+		text: "Simulador de Vuelo",
+		img: "ICAROS_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Dispositivo de entrenamiento en realidad virtual que combina ejercicio físico con una experiencia inmersiva única.",
+	},
+	{
+		text: "Dancing Pads",
+		img: "DANCING_PADS_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Diviértete y haz ejercicio al ritmo de la música con estas alfombrillas interactivas. ¡Sigue los pasos y mejora tu coordinación!",
+	},
+	{
+		text: "PlayStation",
+		img: "PLAYSTATION_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Una de las consolas más populares con títulos exclusivos, gráficos de alta calidad y una experiencia de juego envolvente.",
+	},
+	{
+		text: "Ring Fit Adventure",
+		img: "RING_FIT_HORIZONTAL",
+		categoria: "gaming",
+		descripcion:
+			"Videojuego interactivo que combina fitness y aventura. Usa un aro de resistencia para realizar ejercicios mientras avanzas en el juego.",
+	},
+	{
+		text: "BeFootball",
+		img: "BE_FOTBALL",
+		categoria: "gaming",
+		descripcion:
+			"Simulador de fútbol inmersivo que combina realidad virtual y movimiento físico para entrenar y jugar como un profesional.",
+	},
+	{
+		text: "Pádel VR",
+		img: "PADEL_VR",
+		categoria: "gaming",
+		descripcion:
+			"Experiencia de pádel en realidad virtual que te permite entrenar competir y mejorar tus reflejos desde cualquier lugar.",
+	},
+	{
+		text: "Máquina Arcade Clásica",
+		img: "Maquina_Arcade",
+		categoria: "gaming",
+		descripcion:
+			"Recreativa retro con una colección de juegos clásicos, perfecta para revivir la nostalgia de los salones arcade.",
+	},
+	{
+		text: "Balonmano",
+		img: "BALONMANO_HORIZONTAL",
+		categoria: "sports",
+		descripcion:
+			"Deporte de equipo dinámico donde los jugadores deben marcar goles lanzando el balón con la mano. Requiere velocidad, fuerza y estrategia.",
+	},
+	{
+		text: "Fútbol Sala",
+		img: "FUTBOL_SALA_HORIZONTAL",
+		categoria: "sports",
+		descripcion:
+			"Variante del fútbol tradicional que se juega en una cancha más pequeña, con reglas adaptadas para un ritmo más rápido y técnico.",
+	},
+	{
+		text: "Hockey",
+		img: "HOCKEY_HORIZONTAL",
+		categoria: "sports",
+		descripcion:
+			"Juego de equipo donde los jugadores usan un palo para golpear un disco o una bola y marcar en la portería contraria. Se juega en diferentes superficies como hielo o césped.",
+	},
+	{
+		text: "Minigolf",
+		img: "MINIGOLF_HORIZONTAL",
+		categoria: "sports",
+		descripcion:
+			"Versión compacta y divertida del golf tradicional, con obstáculos creativos y desafíos en cada hoyo. Ideal para todas las edades.",
+	},
+	{
+		text: "Voleibol",
+		img: "VOLLEYBALL_HORIZONTAL",
+		categoria: "sports",
+		descripcion:
+			"Deporte de equipo en el que dos conjuntos se enfrentan tratando de pasar el balón por encima de la red sin que toque el suelo en su campo.",
+	},
+	{
+		text: "Badminton",
+		img: "Badminton",
+		categoria: "sports",
+		descripcion:
+			"Deporte de precisión que consiste en golpear un volante con una raqueta para que pase por encima de una red. Requiere agilidad, coordinación y estrategia.",
+	},
+	{
+		text: "Colpbol",
+		img: "colpbol",
+		categoria: "sports",
+		descripcion:
+			"Deporte de equipo inclusivo que combina elementos del balonmano, voleibol y fútbol. Se juega con las manos y se centra en la cooperación y el juego limpio.",
+	},
+];
 ---

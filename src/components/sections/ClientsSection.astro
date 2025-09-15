@@ -40,7 +40,7 @@ const clientes = reverseArray(clients);
 <script>
 	// Esto solo corre en el cliente (browser)
 	if (typeof window !== "undefined") {
-		const track = document.querySelector(".carousel-track") as HTMLElement;
+		const track = document.querySelector(".carousel-track");
 		const items = document.querySelectorAll(".carousel-item");
 		const totalItems = items.length;
 
@@ -65,16 +65,20 @@ const clientes = reverseArray(clients);
 			const itemWidth = items[0].getBoundingClientRect().width + 16; // ancho item + padding px
 			const distance = itemWidth * currentIndex;
 
-			track.style.transform = `translateX(-${distance}px)`;
+			if (track instanceof HTMLElement) {
+				track.style.transform = `translateX(-${distance}px)`;
+			}
 		}
 
 		let intervalId = setInterval(moveCarousel, 3000);
 
 		// Si quieres que el carrusel se adapte al resize
 		window.addEventListener("resize", () => {
-			// Reinicia posición y timer
-			currentIndex = 0;
-			track.style.transform = `translateX(0)`;
+			if (track instanceof HTMLElement) {
+				track.style.transform = `translateX(0)`;
+			}
+			clearInterval(intervalId);
+			intervalId = setInterval(moveCarousel, 3000);
 			clearInterval(intervalId);
 			intervalId = setInterval(moveCarousel, 3000);
 		});
