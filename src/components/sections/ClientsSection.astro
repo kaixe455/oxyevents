@@ -1,78 +1,82 @@
 ---
 import ClientCard from "@components/cards/ClientCard.astro";
 import { clients } from "@components/ClientsList.astro";
+import { reverseArray } from "@utils/sort.js";
 
-const clientes = clients.slice(14, 20);
+const clientes = reverseArray(clients);
 ---
 
 <section class="mt-[200px] p-10 bg-white" id="clients">
-  <div class="w-full">
-    <h1 class="font-syne-bold text-5xl text-[#1AA9FF] text-center">
-      Clientes
-    </h1>
-    <p class="mt-4 font-syne-bold text-lg text-[#1AA9FF] text-center">
-      Más de 50 clientes ya confían en nosotros
-    </p>
-  </div>
+	<div class="w-full">
+		<h1 class="font-syne-bold text-5xl text-[#1AA9FF] text-center">Clientes</h1>
+		<p class="mt-4 font-syne-bold text-lg text-[#1AA9FF] text-center">
+			Más de 50 clientes ya confían en nosotros
+		</p>
+	</div>
 
-  <div class="carousel-container relative overflow-hidden mt-10 max-w-[1500px] mx-auto">
-    <div class="carousel-track flex transition-transform duration-700 ease-in-out">
-      {clientes.map(client => (
-        <div class="carousel-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2">
-          <ClientCard name={client.name} img={client.img} />
-        </div>
-      ))}
-    </div>
-  </div>
+	<div
+		class="carousel-container relative overflow-hidden mt-10 max-w-[1500px] mx-auto"
+	>
+		<div
+			class="carousel-track flex transition-transform duration-700 ease-in-out"
+		>
+			{
+				clientes.map((client) => (
+					<div class="carousel-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-2">
+						<ClientCard name={client.name} img={client.img} />
+					</div>
+				))
+			}
+		</div>
+	</div>
 </section>
 
 <style>
-  .carousel-container {
-    height: 320px;
-  }
+	.carousel-container {
+		height: 320px;
+	}
 </style>
 
 <script>
-  // Esto solo corre en el cliente (browser)
-  if (typeof window !== 'undefined') {
-    const track = document.querySelector('.carousel-track');
-    const items = document.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
+	// Esto solo corre en el cliente (browser)
+	if (typeof window !== "undefined") {
+		const track = document.querySelector(".carousel-track") as HTMLElement;
+		const items = document.querySelectorAll(".carousel-item");
+		const totalItems = items.length;
 
-    let currentIndex = 0;
+		let currentIndex = 0;
 
-    // Calcula cuántos items mostrar segun el ancho actual
-    function getVisibleCount() {
-      const width = window.innerWidth;
-      if (width < 640) return 1;
-      if (width < 768) return 2;
-      return 3;
-    }
+		// Calcula cuántos items mostrar segun el ancho actual
+		function getVisibleCount() {
+			const width = window.innerWidth;
+			if (width < 640) return 1;
+			if (width < 768) return 2;
+			return 3;
+		}
 
-    function moveCarousel() {
-      const visibleCount = getVisibleCount();
+		function moveCarousel() {
+			const visibleCount = getVisibleCount();
 
-      currentIndex++;
-      if (currentIndex > totalItems - visibleCount) {
-        currentIndex = 0;
-      }
+			currentIndex++;
+			if (currentIndex > totalItems - visibleCount) {
+				currentIndex = 0;
+			}
 
-      const itemWidth = items[0].getBoundingClientRect().width + 16; // ancho item + padding px
-      const distance = itemWidth * currentIndex;
+			const itemWidth = items[0].getBoundingClientRect().width + 16; // ancho item + padding px
+			const distance = itemWidth * currentIndex;
 
-      track.style.transform = `translateX(-${distance}px)`;
-    }
+			track.style.transform = `translateX(-${distance}px)`;
+		}
 
-    let intervalId = setInterval(moveCarousel, 3000);
+		let intervalId = setInterval(moveCarousel, 3000);
 
-    // Si quieres que el carrusel se adapte al resize
-    window.addEventListener('resize', () => {
-      // Reinicia posición y timer
-      currentIndex = 0;
-      track.style.transform = `translateX(0)`;
-      clearInterval(intervalId);
-      intervalId = setInterval(moveCarousel, 3000);
-    });
-  }
+		// Si quieres que el carrusel se adapte al resize
+		window.addEventListener("resize", () => {
+			// Reinicia posición y timer
+			currentIndex = 0;
+			track.style.transform = `translateX(0)`;
+			clearInterval(intervalId);
+			intervalId = setInterval(moveCarousel, 3000);
+		});
+	}
 </script>
-

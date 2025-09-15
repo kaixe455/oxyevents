@@ -1,0 +1,33 @@
+---
+const { item } = Astro.props;
+---
+
+<div
+	id="imagen_zoom"
+	class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex justify-center items-center"
+>
+	<div class="relative">
+		<button
+			id="cerrar_modal"
+			class="absolute top-[-20px] right-[-20px] bg-white text-blue-500 font-bold rounded-full w-[40px] h-[40px] flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300"
+		>
+			✕
+		</button>
+		<img
+			class="w-[40vh] min-[568px]:w-[65vh] border-[4px] rounded-xl shadow-2xl"
+			src={`/events/${item.img}`}
+			alt="Imagen centrada"
+		/>
+	</div>
+</div>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const modal = document.getElementById("imagen_zoom");
+		const cerrar = document.getElementById("cerrar_modal");
+
+		cerrar?.addEventListener("click", (e) => {
+			e.stopPropagation();
+			modal?.classList.add("hidden");
+		});
+	});
+</script>

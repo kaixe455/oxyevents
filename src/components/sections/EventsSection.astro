@@ -2,89 +2,63 @@
 import Section from "@components/Section.astro";
 import EventCard from "@components/cards/EventCard.astro";
 import { events } from "@components/EventsList.astro";
+import AllEventsButton from "@buttons/AllEvents.astro";
 
-const eventos_recientes = events.slice(0,6)
-
-const imagesAlbal = ["event1.webp", "event2.webp"];
-
-
+const eventos_recientes = events.slice(0, 6);
 ---
 
-<section class="mt-20 mb-20 flex flex-col justify-center items-center overflow-x-hidden lg:p-0 p-[20px] md:p-[40px]" id="events">
-  <Section title="Nuestros Eventos" />
+<section
+	class="mt-20 mb-20 flex flex-col justify-center items-center overflow-x-hidden lg:p-0 p-[20px] md:p-[40px]"
+	id="events"
+>
+	<Section title="Nuestros Eventos" />
 
-  <div class="w-screen flex justify-center items-center mt-[50px] ">
-    <div class="swiper w-[80%] flex justify-evenly items-center">
-      <div class="swiper-wrapper flex justify-evenly items-center">
-          {eventos_recientes.map((event) => (
-            <div class="swiper-slide flex items-center justify-center">
-              <EventCard name={event.name} img={event.img} images={imagesAlbal} date={event.date} />
-            </div>
-          ))}
-      </div>
-    </div>
-  </div>
-
-  <a 
-    href="/eventos" 
-    class="mt-10 inline-flex items-center px-8 py-4 text-lg font-bold bg-white 
-           text-[#1AA9FF] rounded-2xl shadow-lg transform 
-
-           transition-all duration-300 focus:ring-4 focus:outline-none focus:ring-blue-400 
-           relative overflow-hidden group"
-  > 
-
-    <span class="relative z-10">Ver todos los eventos</span>
-
-    <svg 
-      class="w-6 h-6 ml-3 relative z-10"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 14 10"
-    >
-      <path 
-        stroke="currentColor" 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="2" 
-        d="M1 5h12m0 0L9 1m4 4L9 9"
-      />
-    </svg>
-  </a> 
+	<div class="w-screen flex justify-center items-center mt-[50px]">
+		<div class="swiper w-[80%] flex justify-evenly items-center">
+			<div class="swiper-wrapper flex justify-evenly items-center">
+				{
+					eventos_recientes.map((event) => (
+						<div class="swiper-slide flex items-center justify-center">
+							<EventCard name={event.name} img={event.img} />
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+	<AllEventsButton />
 </section>
 
 <script>
-  import Swiper from 'swiper';
-  import 'swiper/css';
-  import { Navigation, Autoplay } from "swiper/modules";
-  import "swiper/css/navigation";
+	import Swiper from "swiper";
+	import "swiper/css";
+	import { Navigation, Autoplay } from "swiper/modules";
+	import "swiper/css/navigation";
 
-  new Swiper(".swiper", {
-    modules: [Navigation, Autoplay],
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    centeredSlides: true,
-    breakpoints: {
-      76: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      }
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    },
-  });
+	new Swiper(".swiper", {
+		modules: [Navigation, Autoplay],
+		loop: true,
+		slidesPerView: 1,
+		spaceBetween: 20,
+		centeredSlides: true,
+		breakpoints: {
+			76: {
+				slidesPerView: 1,
+				spaceBetween: 30,
+			},
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 30,
+			},
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 30,
+			},
+		},
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+			pauseOnMouseEnter: false,
+		},
+	});
 </script>
-

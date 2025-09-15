@@ -1,29 +1,34 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/Container.astro";
 import EventsCarrousel from "@components/carrousels/EventsCarrousel.astro";
 import Section from "@components/Section.astro";
 ---
+
 <Layout title="Oxygen Gaming Eventos - Nuestros eventos">
-  <main class="text-white ">
-    
-      
-        <section id="events" class="w-screen">
-          <div class="w-full flex flex-col items-center justify-center xl:h-[110vh] min-[568px]:h-[100vh] sm:h-[115vh] md:h-[60vh] h-[65vh]">
-            <div class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem]">
-              <Section title="Nuestros Eventos" />
-            </div>
-            <div class="z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
-              <img src="/imgs/header_catalogo.webp" alt="" class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[58vh] w-full">
-            </div>
-          </div>
-          
-        <div class=" grid grid-cols-1 items-center justify-center  ">
-          <div class="col-span-1">
-            <EventsCarrousel page="true" />
-          </div>
-        </div>
-      </section>
-    
-  </main>
+	<main class="text-white">
+		<section id="events" class="w-screen">
+			<div
+				class="w-full flex flex-col items-center justify-center xl:h-[110vh] min-[568px]:h-[100vh] sm:h-[115vh] md:h-[60vh] h-[65vh]"
+			>
+				<div
+					class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem]"
+				>
+					<Section title="Nuestros Eventos" />
+				</div>
+				<div class="z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
+					<img
+						src="/imgs/header_catalogo.webp"
+						alt=""
+						class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[58vh] w-full"
+					/>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 items-center justify-center">
+				<div class="col-span-1">
+					<EventsCarrousel page="true" />
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>

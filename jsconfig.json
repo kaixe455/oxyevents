@@ -7,6 +7,18 @@
 			],
 			"@layouts/*": [
 				"src/layouts/*"
+			],
+			"@utils/*": [
+				"src/utils/*"
+			],
+			"@buttons/*": [
+				"src/components/buttons/*"
+			],
+			"@forms/*": [
+				"src/components/forms/*"
+			],
+			"@modals/*": [
+				"src/components/modals/*"
 			]
 		}
 	}
