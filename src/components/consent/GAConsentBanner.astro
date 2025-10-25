@@ -1,0 +1,61 @@
+---
+const text =
+	"Usamos cookies analíticas (Google Analytics) para medir el uso del sitio. Puedes aceptar o rechazar.";
+---
+
+<div
+	id="consent-banner"
+	class="fixed inset-x-0 bottom-0 z-50 mx-auto max-w-4xl m-4 rounded-lg bg-white shadow-lg border border-gray-200 p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between hidden"
+>
+	<p class="text-sm text-gray-700">{text}</p>
+	<div class="flex gap-2 justify-end">
+		<button
+			id="consent-decline"
+			class="px-4 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-50"
+			>Rechazar</button
+		>
+		<button
+			id="consent-accept"
+			class="px-4 py-2 rounded bg-[#1AA9FF] text-white hover:bg-[#0f8dd4]"
+			>Aceptar</button
+		>
+	</div>
+</div>
+
+<script>
+	const banner = document.getElementById("consent-banner");
+	const accept = document.getElementById("consent-accept");
+	const decline = document.getElementById("consent-decline");
+
+	const hide = () => banner?.classList.add("hidden");
+	const show = () => banner?.classList.remove("hidden");
+
+	// Mostrar solo si no hay decisión guardada
+	try {
+		const stored = localStorage.getItem("consent"); // 'granted' | 'denied' | null
+		if (!stored) show();
+		else hide();
+	} catch {
+		show();
+	}
+
+	accept?.addEventListener("click", () => {
+		try {
+			localStorage.setItem("consent", "granted");
+		} catch {}
+		window.dispatchEvent(
+			new CustomEvent("consent-changed", { detail: "granted" })
+		);
+		hide();
+	});
+
+	decline?.addEventListener("click", () => {
+		try {
+			localStorage.setItem("consent", "denied");
+		} catch {}
+		window.dispatchEvent(
+			new CustomEvent("consent-changed", { detail: "denied" })
+		);
+		hide();
+	});
+</script>
