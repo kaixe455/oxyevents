@@ -1,6 +1,7 @@
 ---
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import { SEO } from "astro-seo";
 
 interface Props {
@@ -63,6 +64,7 @@ const { title } = Astro.props;
 				],
 			}}
 		/>
+		<GoogleAnalytics />
 	</head>
 	<body class="bg-[#1AA9FF] overflow-x-hidden">
 		<Header />
