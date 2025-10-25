@@ -5,11 +5,10 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
   <>
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
     <script is:inline define:vars={{ GA_ID }}>
-      // dataLayer y gtag
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
 
-      // Consent Mode v2: denegar por defecto
+      // Denegar por defecto
       gtag('consent', 'default', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
@@ -17,13 +16,12 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
         ad_personalization: 'denied',
       });
 
-      // Inicializa gtag
       gtag('js', new Date());
 
-      // Si ya hay consentimiento almacenado, concédelo y configura GA
+      // Restaurar decisión almacenada
       try {
-        const stored = localStorage.getItem('consent'); // 'granted' | 'denied' | null
-        if (stored === 'granted') {
+        const v = localStorage.getItem('consent'); // 'granted' | 'denied'
+        if (v === 'granted') {
           gtag('consent', 'update', {
             ad_storage: 'granted',
             analytics_storage: 'granted',
@@ -35,9 +33,9 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
         }
       } catch {}
 
-      // Escucha la decisión del banner
+      // Escuchar el banner
       window.addEventListener('consent-changed', (e) => {
-        const granted = e.detail === 'granted';
+        const granted = e?.detail === 'granted';
         gtag('consent', 'update', {
           ad_storage: granted ? 'granted' : 'denied',
           analytics_storage: granted ? 'granted' : 'denied',
