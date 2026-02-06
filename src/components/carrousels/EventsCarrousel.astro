@@ -35,7 +35,12 @@ eventsSorted.forEach((event) => {
 	{
 		upcoming.map((event) => (
 			<div class="flex justify-center items-center w-full">
-				<EventCard name={event.name} img={event.img} alt={event.alt} date={event.date} />
+				<EventCard
+					name={event.name}
+					img={event.img}
+					alt={event.alt}
+					date={event.date}
+				/>
 			</div>
 		))
 	}
@@ -49,7 +54,12 @@ eventsSorted.forEach((event) => {
 	{
 		finished.map((event) => (
 			<div class="opacity-60 grayscale-[50%] blur-[0.5px] hover:opacity-100 hover:grayscale-0 hover:blur-0 transition duration-300">
-					<EventCard name={event.name} img={event.img} alt={event.alt} date={event.date} />
+				<EventCard
+					name={event.name}
+					img={event.img}
+					alt={event.alt}
+					date={event.date}
+				/>
 			</div>
 		))
 	}

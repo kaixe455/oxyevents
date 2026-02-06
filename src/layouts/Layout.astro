@@ -27,9 +27,7 @@ const { title, description } = Astro.props;
 const currentPath = Astro.url?.pathname?.replace(/\/$/, "") || "/";
 const currentUrl = Astro.url?.toString();
 const resolvedDescription =
-	description ??
-	excelDescriptionsByPath[currentPath] ??
-	defaultDescription;
+	description ?? excelDescriptionsByPath[currentPath] ?? defaultDescription;
 ---
 
 <!doctype html>
@@ -74,7 +72,7 @@ const resolvedDescription =
 						? {
 								property: "og:url",
 								content: currentUrl,
-						  }
+							}
 						: null,
 					{
 						name: "twitter:image",

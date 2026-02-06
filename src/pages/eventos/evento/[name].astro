@@ -24,7 +24,12 @@ const isFuture = eventDate && eventDate > new Date();
 		>
 			<!-- Tarjeta clickeable -->
 			<div id="tarjeta_activar" class="cursor-pointer">
-				<EventCardEnlace name={item.name} img={item.img} alt={item.alt} date={item.date} />
+				<EventCardEnlace
+					name={item.name}
+					img={item.img}
+					alt={item.alt}
+					date={item.date}
+				/>
 			</div>
 
 			<!-- Info y botones -->
@@ -71,7 +76,7 @@ const isFuture = eventDate && eventDate > new Date();
 			const modal = document.getElementById("imagen_zoom");
 			const botonFormulario = document.getElementById("mostrar_formulario");
 			const contenedorFormulario = document.getElementById(
-				"formulario_entradas"
+				"formulario_entradas",
 			);
 
 			tarjeta?.addEventListener("click", () => {
@@ -82,7 +87,7 @@ const isFuture = eventDate && eventDate > new Date();
 				contenedorFormulario?.classList.toggle("hidden");
 				if (botonFormulario && contenedorFormulario) {
 					botonFormulario.textContent = contenedorFormulario.classList.contains(
-						"hidden"
+						"hidden",
 					)
 						? "Obtén tu entrada"
 						: "Ocultar";
