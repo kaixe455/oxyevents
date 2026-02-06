@@ -1,5 +1,5 @@
 ---
-const { text, img } = Astro.props;
+const { text, img, alt } = Astro.props;
 ---
 <a href={`/catalogo/sports/${text}`} class="flex-grow">
   <div
@@ -9,7 +9,7 @@ const { text, img } = Astro.props;
         <img
           class="rounded-t-lg w-full h-full object-cover"
           src={`/catalogo/sports/${img}.webp`}
-          alt={text}
+          alt={alt ?? text}
         />
       </div>
       <h5 class="max-[320px]:mt-[20px] min-[568px]:mt-[30px] font-syne-bold text-[23px] lg:text-xl lg:mb-[20px] md:text-[25px] md:mt-[30px] sm:mt-[30px] mb-[20px] text-white flex items-center justify-center h-[10vh]">

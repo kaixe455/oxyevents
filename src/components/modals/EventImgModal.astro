@@ -16,7 +16,7 @@ const { item } = Astro.props;
 		<img
 			class="w-[40vh] min-[568px]:w-[65vh] border-[4px] rounded-xl shadow-2xl"
 			src={`/events/${item.img}`}
-			alt="Imagen centrada"
+			alt={item.alt ?? item.name}
 		/>
 	</div>
 </div>

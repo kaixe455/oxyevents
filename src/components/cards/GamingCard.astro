@@ -1,5 +1,5 @@
 ---
-const { text, img } = Astro.props;
+const { text, img, alt } = Astro.props;
 ---
 <a href={`/catalogo/gaming/${text}`} class="">
   <div
@@ -10,7 +10,7 @@ const { text, img } = Astro.props;
         <img
           class="rounded-t-lg w-full h-full object-cover"
           src={`/catalogo/gaming/${img}.webp`}
-          alt={text}
+          alt={alt ?? text}
         />
       </div>
 

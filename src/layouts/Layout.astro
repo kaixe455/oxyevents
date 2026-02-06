@@ -7,20 +7,38 @@ import GAConsentBanner from "@components/consent/GAConsentBanner.astro";
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const defaultDescription =
+	"Organizamos eventos gaming, torneos eSports y eventos deportivos con simuladores VR. Tecnología, diversión y deporte en un solo lugar. ¡Contáctanos ya!";
+
+const excelDescriptionsByPath: Record<string, string> = {
+	"/": "Organizamos eventos gaming, torneos eSports y eventos deportivos con simuladores VR. Tecnología, diversión y deporte en un solo lugar. ¡Contáctanos ya!",
+	"/about-us":
+		"Líder en eventos gaming y tecnológicos. Promovemos la buena praxis en eSports con simuladores ICAROS y experiencias de realidad virtual. ¡Conócenos!",
+	"/eventos":
+		"Creamos experiencias únicas que combinan eSports, deporte y realidad virtual. Simulador de vuelo y actividades interactivas. ¡Solicita tu evento!",
+	"/catalogo":
+		"Catálogo con simulador de Vuelo, Conducción PC y VR. Encuentra equipamento para eventos tecnológicos y deportivos en Valencia, Tarragona o Zaragoza.",
+};
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url?.pathname?.replace(/\/$/, "") || "/";
+const currentUrl = Astro.url?.toString();
+const resolvedDescription =
+	description ??
+	excelDescriptionsByPath[currentPath] ??
+	defaultDescription;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
-		/>
+		<meta name="description" content={resolvedDescription} />
 		<meta name="viewport" content="width=device-width" />
+		{currentUrl && <link rel="canonical" href={currentUrl} />}
 		<link rel="icon" type="image/svg+xml" href="../../svgs/logo/o2glogo.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -34,11 +52,11 @@ const { title } = Astro.props;
 		/>
 		<SEO
 			title={title}
-			description="Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes."
+			description={resolvedDescription}
 			openGraph={{
 				basic: {
-					title: "Oxygen Gaming - Organización de eventos y ferias",
-					type: "Landing page",
+					title,
+					type: "website",
 					image:
 						"https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
 				},
@@ -49,20 +67,33 @@ const { title } = Astro.props;
 			extend={{
 				meta: [
 					{
+						property: "og:site_name",
+						content: "Oxygen Gaming",
+					},
+					currentUrl
+						? {
+								property: "og:url",
+								content: currentUrl,
+						  }
+						: null,
+					{
 						name: "twitter:image",
 						content:
 							"https://oxygengaming.es/wp-content/uploads/2022/07/logolight.png",
 					},
 					{
+						name: "twitter:card",
+						content: "summary_large_image",
+					},
+					{
 						name: "twitter:title",
-						content: "Oxygen Gaming - Organización de eventos y ferias",
+						content: title,
 					},
 					{
 						name: "twitter:description",
-						content:
-							"Nuestros eventos aportan todo lo necesario para disfrutar de jornadas con modelos de entretenimiento innovadores. Realizamos actividades adaptadas a todo tipo de público donde mostramos que el deporte tradicional y las nuevas tecnologías son perfectos aliados para trabajar el desarrollo físico y cognitivo de los niños y jóvenes.",
+						content: resolvedDescription,
 					},
-				],
+				].filter(Boolean),
 			}}
 		/>
 		<GoogleAnalytics />
