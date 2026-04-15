@@ -21,3 +21,16 @@ pnpm-debug.log*
 .DS_Store
 package-lock.json
 .github/copilot-instructions.md
+# testing
+coverage/
+.nyc_output/
+playwright-report/
+blob-report/
+playwright/.cache/
+.vitest/
+dist-test/
+COMPLETE_TEST_SUMMARY.md
+TEST_ARCHITECTURE.md
+TEST_SUMMARY.md
+TESTS_SETUP.md
+test-results/.last-run.json
