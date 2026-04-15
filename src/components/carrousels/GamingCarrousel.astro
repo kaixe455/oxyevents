@@ -13,7 +13,7 @@ const gaming_items = filterByCategory(catalog, "gaming");
 	{
 		gaming_items.map((item) => (
 			<div class="col-span-1">
-				<GamingCard text={item.text} img={item.img} />
+				<GamingCard text={item.text} img={item.img} alt={item.alt} />
 			</div>
 		))
 	}

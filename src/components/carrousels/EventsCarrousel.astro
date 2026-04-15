@@ -35,21 +35,31 @@ eventsSorted.forEach((event) => {
 	{
 		upcoming.map((event) => (
 			<div class="flex justify-center items-center w-full">
-				<EventCard name={event.name} img={event.img} date={event.date} />
+				<EventCard
+					name={event.name}
+					img={event.img}
+					alt={event.alt}
+					date={event.date}
+				/>
 			</div>
 		))
 	}
 </div>
 
 <!--  Pasados Eventos -->
-{finished.length > 0 && <Section title="Eventos Pasados" />}
+{finished.length > 0 && <Section title="Eventos pasados en España" />}
 <div
 	class="mt-2 grid grid-cols-1 min-[568px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-7"
 >
 	{
 		finished.map((event) => (
 			<div class="opacity-60 grayscale-[50%] blur-[0.5px] hover:opacity-100 hover:grayscale-0 hover:blur-0 transition duration-300">
-				<EventCard name={event.name} img={event.img} date={event.date} />
+				<EventCard
+					name={event.name}
+					img={event.img}
+					alt={event.alt}
+					date={event.date}
+				/>
 			</div>
 		))
 	}

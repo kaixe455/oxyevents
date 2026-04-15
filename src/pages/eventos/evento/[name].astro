@@ -14,14 +14,22 @@ const eventDate = parseDate(item?.date);
 const isFuture = eventDate && eventDate > new Date();
 ---
 
-<Layout title={item ? item.name : "No encontrado"}>
+<Layout
+	title={item ? item.name : "No encontrado"}
+	description={item?.description}
+>
 	<main class="text-white relative my-16">
 		<div
 			class="gap-[50px] lg:gap-[10vh] mt-[100px] lg:mt-0 w-full bg-[#1AA9FF] flex flex-col sm:flex-row md:flex-row justify-center items-center md:h-[600px] p-8"
 		>
 			<!-- Tarjeta clickeable -->
 			<div id="tarjeta_activar" class="cursor-pointer">
-				<EventCardEnlace name={item.name} img={item.img} date={item.date} />
+				<EventCardEnlace
+					name={item.name}
+					img={item.img}
+					alt={item.alt}
+					date={item.date}
+				/>
 			</div>
 
 			<!-- Info y botones -->
@@ -68,7 +76,7 @@ const isFuture = eventDate && eventDate > new Date();
 			const modal = document.getElementById("imagen_zoom");
 			const botonFormulario = document.getElementById("mostrar_formulario");
 			const contenedorFormulario = document.getElementById(
-				"formulario_entradas"
+				"formulario_entradas",
 			);
 
 			tarjeta?.addEventListener("click", () => {
@@ -79,7 +87,7 @@ const isFuture = eventDate && eventDate > new Date();
 				contenedorFormulario?.classList.toggle("hidden");
 				if (botonFormulario && contenedorFormulario) {
 					botonFormulario.textContent = contenedorFormulario.classList.contains(
-						"hidden"
+						"hidden",
 					)
 						? "Obtén tu entrada"
 						: "Ocultar";
