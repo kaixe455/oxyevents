@@ -1,149 +1,224 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/Container.astro";
 import Section from "@components/Section.astro";
 import GamingCarrousel from "@components/carrousels/GamingCarrousel.astro";
 import SportsCarrousel from "@components/carrousels/SportsCarrousel.astro";
-import logo from "@svgs/logo/o2glogo.svg"
 ---
 
 <Layout title="Oxygen Gaming Eventos - Alquila equipamiento para tu evento">
-  <main class="text-white max-[320px]:mt-[50px] min-[568px]:mt-[100px]">
+	<main class="text-white max-[320px]:mt-[50px] min-[568px]:mt-[100px]">
+		<div
+			class="w-full flex flex-col items-center justify-center xl:h-[100vh] sm:h-[90vh] md:h-[50vh] h-[45vh]"
+		>
+			<div
+				class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem] md:mt-[-20vh]"
+			>
+				<Section title="Catálogo" />
+			</div>
 
-    
+			<div
+				class="font-roboto font-bold text-center flex justify-center gap-[50px] h-[50%] lg:mt-[-30vh] items-center flex-col"
+			>
+				<a
+					target="_blank"
+					href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto`}
+					class="mb-0 md:mb-[20rem] md:landscape:mb-[-10rem] lg:landscape:mb-[45rem] xl:mt-[150px] inline-block px-12 py-4 rounded-lg font-bold text-[25px] transition transform hover:-translate-y-1 hover:shadow-lg bg-white text-[#1AA9FF] hover:from-[#00487a] hover:to-[#007acc]"
+					>Solicitar Presupuesto</a
+				>
+			</div>
 
-    <div class="w-full flex flex-col items-center justify-center xl:h-[100vh] sm:h-[90vh] md:h-[50vh] h-[45vh]">
-      <div class="p-10 text-center flex justify-center items-center flex-col gap-[5vh] h-full w-full xl:pb-[10rem] md:mt-[-20vh]">
-        <Section title="Catálogo" />
-      </div>
+			<div
+				class="hidden sm:flex lg:flex z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]"
+			>
+				<img
+					class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full"
+					src="/imgs/HEADERCATALOGO.webp"
+					alt=""
+				/>
+			</div>
 
-      <div class="font-roboto font-bold text-center flex justify-center gap-[50px] h-[50%] lg:mt-[-30vh] items-center flex-col">
-        <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto`} class="mb-0 md:mb-[20rem] md:landscape:mb-[-10rem] lg:landscape:mb-[45rem] xl:mt-[150px] inline-block px-12 py-4 rounded-lg font-bold text-[25px] transition transform hover:-translate-y-1 hover:shadow-lg bg-white text-[#1AA9FF] hover:from-[#00487a] hover:to-[#007acc] ">Solicitar Presupuesto</a>
-      </div>
-      
-      <div class="hidden sm:flex lg:flex z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
-        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full" src="/imgs/Header_Posters.webp" alt="">
-      </div>
-      
+			<div
+				class="flex sm:hidden lg:hidden z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]"
+			>
+				<img
+					class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full min-[568px]:h-[90vh]"
+					src="/imgs/View_Poster_3.webp"
+					alt=""
+				/>
+			</div>
+		</div>
 
-      <div class="flex sm:hidden lg:hidden z-[-10] absolute inset-0 opacity-40 w-screen mt-[100px]">
-        <img class="xl:h-[110vh] sm:h-[100vh] md:h-[60vh] h-[50vh] w-full min-[568px]:h-[90vh]" src="/imgs/View_Poster_3.webp" alt="">
-      </div>
-    </div>
+		<div class="flex flex-col w-full gap-[1rem]">
+			<h3
+				id="boton_catalogo"
+				class="font-bold text-[40px] md:text-[50px] mt-[6rem] mb-[4rem] flex justify-center text-center items-center"
+			>
+				Tecnología
+			</h3>
 
-      <div class="flex flex-col w-full gap-[1rem]">
-        <h3 id="boton_catalogo" class="font-bold text-[40px] md:text-[50px] mt-[6rem] mb-[4rem] flex justify-center text-center items-center">Tecnología</h3>
-        
-        <div class="flex justify-center items-center scroll-mt-[300px]"  id="gaming">
-          <GamingCarrousel />
-          
-        </div>
+			<div
+				class="flex justify-center items-center scroll-mt-[300px]"
+				id="gaming"
+			>
+				<GamingCarrousel />
+			</div>
 
-        <div class=" bg-[white] xl:h-[60rem]" id="ponencias">
-          <div class="w-full flex flex-col justify-center items-center gap-10 bg-[white] h-[80%] text-black">
-            <h1 class="text-4xl font-bold text-mainblue text-center">CHARLAS Y TALLERES</h1>
-            <p class="text-lg text-justify max-w-4xl px-4">
-              Creemos que es fundamental que la tecnología y la educación vayan de la mano. 
-              Por ello colaboramos con diferentes empresas del sector tecnológico para ofrecer charlas y talleres de la mayor calidad.
-              Si te interesa un taller de alguna temática relacionada, ¡No dudes en preguntar!.</p>
-            
-    
-            <div class="grid grid-cols:1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-[45px] xl:mb-[-10rem]">
-              <div class="group h-[25rem] w-80 [perspective:1000px]">
-                <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  <div class="h-full w-full flex justify-center">                   
-                    <img src="/ponencias/trabajar_en_videojuegos.webp" class="absolute w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
-                    
-                  </div>
-                  
-                  <div class="absolute inset-0 z-[8] w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <div class="flex flex-col p-6">
-                      <h2 class="text-lg font-bold text-mainblue mb-2">TRABAJAR CON VIDEOJUEGOS</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
-                        <li>Inserción en el mercado laboral del sector de los deportes electrónicos.</li>
-                        <li>Creación de videojuegos.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+			<div class="bg-[white] xl:h-[60rem]" id="ponencias">
+				<div
+					class="w-full flex flex-col justify-center items-center gap-10 bg-[white] h-[80%] text-black"
+				>
+					<h1 class="text-4xl font-bold text-mainblue text-center">
+						CHARLAS Y TALLERES
+					</h1>
+					<p class="text-lg text-justify max-w-4xl px-4">
+						Creemos que es fundamental que la tecnología y la educación vayan de
+						la mano. Por ello colaboramos con diferentes empresas del sector
+						tecnológico para ofrecer charlas y talleres de la mayor calidad. Si
+						te interesa un taller de alguna temática relacionada, ¡No dudes en
+						preguntar!.
+					</p>
 
-              </div>
+					<div
+						class="grid grid-cols:1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-[45px] xl:mb-[-10rem]"
+					>
+						<div class="group h-[25rem] w-80 [perspective:1000px]">
+							<div
+								class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+							>
+								<div class="h-full w-full flex justify-center">
+									<img
+										src="/ponencias/trabajar_en_videojuegos.webp"
+										class="absolute w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40"
+									/>
+								</div>
 
-              <div class="group h-[25rem] w-80 [perspective:1000px]">
-                <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  <div class=" h-full flex">
-                    <img src="/ponencias/mundo_videojuegos.webp" class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
-                  </div>
-                  <div class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <div class="flex flex-col p-6">
-                      <h2 class="text-lg font-bold text-mainblue mb-2">EL MUNDO DE LOS VIDEOJUEGOS</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
-                        <li>Beneficios y perjuicios de los videojuegos.</li>
-                        <li>De Atari a Fortnite, historia de los videojuegos.</li>
-                        <li>Entendiendo los deportes electrónicos.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+								<div
+									class="absolute inset-0 z-[8] w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]"
+								>
+									<div class="flex flex-col p-6">
+										<h2 class="text-lg font-bold text-mainblue mb-2">
+											TRABAJAR CON VIDEOJUEGOS
+										</h2>
+										<ul class="list-disc list-inside text-black space-y-2">
+											<li>
+												Inserción en el mercado laboral del sector de los
+												deportes electrónicos.
+											</li>
+											<li>Creación de videojuegos.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 
-              </div>
+						<div class="group h-[25rem] w-80 [perspective:1000px]">
+							<div
+								class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+							>
+								<div class="h-full flex">
+									<img
+										src="/ponencias/mundo_videojuegos.webp"
+										class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40"
+									/>
+								</div>
+								<div
+									class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]"
+								>
+									<div class="flex flex-col p-6">
+										<h2 class="text-lg font-bold text-mainblue mb-2">
+											EL MUNDO DE LOS VIDEOJUEGOS
+										</h2>
+										<ul class="list-disc list-inside text-black space-y-2">
+											<li>Beneficios y perjuicios de los videojuegos.</li>
+											<li>De Atari a Fortnite, historia de los videojuegos.</li>
+											<li>Entendiendo los deportes electrónicos.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 
-              <div class="group h-[25rem] w-80 [perspective:1000px]">
-                <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  <div class=" h-full flex">
-                    <img src="/ponencias/tecnologia_deportes.webp" class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
-                  </div>
-                  <div class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <div class="flex flex-col p-6">
-                      <h2 class="text-lg font-bold text-mainblue mb-2">DEPORTE, TECNOLOGÍA Y EDUCACIÓN</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
-                        <li>Exergame.</li>
-                        <li>Creación de videojuegos.</li>
-                        <li>Educación gamificada.</li>
-                        <li>Ciberseguridad.</li>
-                        <li>Igualdad y videojuegos.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+						<div class="group h-[25rem] w-80 [perspective:1000px]">
+							<div
+								class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+							>
+								<div class="h-full flex">
+									<img
+										src="/ponencias/tecnologia_deportes.webp"
+										class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40"
+									/>
+								</div>
+								<div
+									class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]"
+								>
+									<div class="flex flex-col p-6">
+										<h2 class="text-lg font-bold text-mainblue mb-2">
+											DEPORTE, TECNOLOGÍA Y EDUCACIÓN
+										</h2>
+										<ul class="list-disc list-inside text-black space-y-2">
+											<li>Exergame.</li>
+											<li>Creación de videojuegos.</li>
+											<li>Educación gamificada.</li>
+											<li>Ciberseguridad.</li>
+											<li>Igualdad y videojuegos.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 
-              </div>
+						<div class="group h-[25rem] w-80 [perspective:1000px]">
+							<div
+								class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+							>
+								<div class="h-full flex">
+									<img
+										src="/ponencias/talleres.webp"
+										class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40"
+									/>
+								</div>
+								<div
+									class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]"
+								>
+									<div class="flex flex-col p-6">
+										<h2 class="text-lg font-bold text-mainblue mb-2">
+											TALLERES
+										</h2>
+										<ul class="list-disc list-inside text-black space-y-2">
+											<li>Taller de Cosplay.</li>
+											<li>Taller de desarrollo de aplicaciones.</li>
+											<li>Taller de desarrollo de videojuegos.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a
+						target="_blank"
+						href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para Talleres`}
+						class="w-[20rem] h-[50px] text-center relative z-10 mt-[150px] inline-flex items-center justify-center text-lg font-bold bg:blue-500 text-[white] rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group"
+					>
+						<button class="bg-[#1AA9FF] w-full h-full"
+							>Solicitar Presupuesto</button
+						>
+					</a>
+				</div>
+			</div>
+		</div>
 
-              <div class="group h-[25rem] w-80 [perspective:1000px]">
-                <div class="h-full w-full relative shadow-xl rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  <div class=" h-full flex">
-                    <img src="/ponencias/talleres.webp" class="w-full h-full flex flex-col items-center justify-center rounded-xl shadow-xl shadow-black/40">
-                  </div>
-                  <div class="absolute inset-0 w-full h-full rounded-xl bg-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <div class="flex flex-col p-6">
-                      <h2 class="text-lg font-bold text-mainblue mb-2">TALLERES</h2>
-                      <ul class="list-disc list-inside text-black space-y-2">
-                        <li>Taller de Cosplay.</li>
-                        <li>Taller de desarrollo de aplicaciones.</li>
-                        <li>Taller de desarrollo de videojuegos.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a target="_blank" href={`https://mail.google.com/mail/?view=cm&fs=1&to=info@oxygengaming.es&su=Solicitud de presupuesto&body=Solicitar presupuesto para Talleres`} class=" w-[20rem] h-[50px] text-center relative z-10 mt-[150px] inline-flex items-center justify-center  text-lg font-bold bg:blue-500 text-[white] rounded shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:from-blue-600 hover:to-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 overflow-hidden group">
-              <button class="bg-[#1AA9FF] w-full h-full">Solicitar Presupuesto</button>
+		<h3
+			id="boton_catalogo"
+			class="font-bold text-[40px] md:text-[50px] text-center mt-[10rem] mb-[4rem]"
+		>
+			Deporte
+		</h3>
 
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    
-
-          <h3 
-            id="boton_catalogo"
-            class="font-bold text-[40px] md:text-[50px] text-center mt-[10rem] mb-[4rem]">Deporte</h3>
-          
-            <div id="sports" class="mb-[50px] flex items-center justify-center scroll-mt-[300px]">
-              <SportsCarrousel></SportsCarrousel>
-            </div>
-      </div>
-    </main>
+		<div
+			id="sports"
+			class="mb-[50px] flex items-center justify-center scroll-mt-[300px]"
+		>
+			<SportsCarrousel />
+		</div>
+	</main>
 </Layout>
